@@ -1,0 +1,212 @@
+@(user: models.users.User)
+@main("Whats on", user){
+<div class="row">
+
+    <div class="col-md-3">
+
+        <div class="list-group">
+            <div class="list-group-item">
+                <h5 style="text-align: center; font-size: 2em; font-family: sans-serif;"><strong>Sort by <span class="glyphicon glyphicon-hand-down"></strong></span>
+                </h5>
+            </div>
+            <a href="#" class="list-group-item">Action</a>
+            <a href="#" class="list-group-item">Animation</a>
+            <a href="#" class="list-group-item">Comedy</a>
+            <a href="#" class="list-group-item">Drama</a>
+            <a href="#" class="list-group-item">Fantasy</a>
+            <a href="#" class="list-group-item">Horror</a>
+            <a href="#" class="list-group-item">Thriller</a>
+        </div>
+    </div>
+
+    <div class="col-md-9">
+
+
+
+        <div class="row">
+
+            <div class="col-sm-3 col-lg-3 col-md-3">
+                <div class="thumbnail">
+
+                    <img src="@routes.Assets.versioned("images/movies/inferno.jpg")" alt="">
+                    <div class="caption">
+                        <h4 class="pull-right">€7.50</h4>
+                        <h4><a href="@routes.HomeController.inferno()">Inferno</a>
+                        </h4>
+                        <p>The Cowboy from Toy Story is human in this new Highly acclaimed film</p>
+                    </div>
+                    <div class="ratings">
+                        <p class="pull-right">15 reviews</p>
+                        <p>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3 col-lg-3 col-md-3">
+                <div class="thumbnail">
+                    <img src="@routes.Assets.versioned("images/movies/Arrival2.jpg")" alt="">
+                    <div class="caption">
+                        <h4 class="pull-right">€4.99</h4>
+                        <h4><a href="@routes.HomeController.arrival()">Arrival</a>
+                        </h4>
+                        <p>They finally arrive at grandma's (Not too sure haven't seen this one)</p>
+                    </div>
+                    <div class="ratings">
+                        <p class="pull-right">12 reviews</p>
+                        <p>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3 col-lg-3 col-md-3">
+                <div class="thumbnail">
+                    <img src="@routes.Assets.versioned("images/movies/JackReacher.jpg")" alt="">
+                    <div class="caption">
+                        <h4 class="pull-right">€8.45</h4>
+                        <h4><a href="@routes.HomeController.jackreacher()">Jack Reacher</a>
+                        </h4>
+                        <p> A 2hr film of Jack reaching for a glass of water</p>
+                    </div>
+                    <div class="ratings">
+                        <p class="pull-right">31 reviews</p>
+                        <p>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3 col-lg-3 col-md-3">
+                <div class="thumbnail">
+                    <img src="@routes.Assets.versioned("images/movies/Trolls.jpg")" alt="">
+                    <div class="caption">
+                        <h4 class="pull-right">€7.00</h4>
+                        <h4><a href="@routes.HomeController.trolls()">Trolls</a>
+                        </h4>
+                        <p>Not the internet ones</p>
+                    </div>
+                    <div class="ratings">
+                        <p class="pull-right">6 reviews</p>
+                        <p>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3 col-lg-3 col-md-3">
+                <div class="thumbnail">
+                    <img src="@routes.Assets.versioned("images/movies/gott.jpg")" alt="">
+                    <div class="caption">
+                        <h4 class="pull-right">€9.00</h4>
+                        <h4><a href="@routes.HomeController.gott()">Gott</a>
+                        </h4>
+                        <p>Trains go fast, Trains go slow, Trains go to the big screen</p>
+                    </div>
+                    <div class="ratings">
+                        <p class="pull-right">18 reviews</p>
+                        <p>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3 col-lg-3 col-md-3">
+                <div class="thumbnail">
+                    <img src="@routes.Assets.versioned("images/movies/joneses.jpg")" alt="">
+                    <div class="caption">
+                        <h4 class="pull-right">€8.60</h4>
+                        <h4><a href="@routes.HomeController.joneses()">The Joneses</a>
+                        </h4>
+                        <p>Zach Galifianakis is cool</p>
+                    </div>
+                    <div class="ratings">
+                        <p class="pull-right">14 reviews</p>
+                        <p>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3 col-lg-3 col-md-3">
+                <div class="thumbnail">
+                    <img src="@routes.Assets.versioned("images/movies/kubo.jpg")" alt="">
+                    <div class="caption">
+                        <h4 class="pull-right">€9.00</h4>
+                        <h4><a href="@routes.HomeController.kubo()">Kubo</a>
+                        </h4>
+                        <p>Brilliant stop motion animation</p>
+                    </div>
+                    <div class="ratings">
+                        <p class="pull-right">33 reviews</p>
+                        <p>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3 col-lg-3 col-md-3">
+                <div class="thumbnail">
+                    <img src="@routes.Assets.versioned("images/movies/fantasticbeasts.jpg")" alt="">
+                    <div class="caption">
+                        <h4 class="pull-right">€5</h4>
+                        <h4><a href="@routes.HomeController.fantasticbeasts()">Fantastic Beasts</a>
+                        </h4>
+                        <p>Basically Harry potter again</p>
+                    </div>
+                    <div class="ratings">
+                        <p class="pull-right">13 reviews</p>
+                        <p>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+</div>
+}

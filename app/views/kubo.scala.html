@@ -1,0 +1,90 @@
+@(user: models.users.User)
+@main("Kubo", user){
+<div class="row">
+
+    <div class="col-md-3">
+        <div class="list-group">
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="page-header">
+            <h1>Kubo and the Two Strings</h1>
+        </div>
+        <span class="label label-info lb-lg">Genre: Animation</span>
+        <span class="label label-danger">Age: PG</span>
+        <span class="label label-success">Length: 110 Minutes</span>
+        <br>
+        <br>
+        <div class="tophalf">
+            <p>A young boy named, Kubo, must locate a magical suit of armor worn by his late father in order to defeat a vengeful
+                spirit from the past.</p>
+        </div>
+        <br>
+        <div class="trailer">
+            <a href="https://youtu.be/vex0gPFnBvM"><img src="@routes.Assets.versioned("images/watch_trailer.png")" alt="click me!" /></a>
+        </div>
+
+
+        <div class="datesofshowing">
+
+            <h1>Available Times</h1>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="well">SUNDAY, NOVEMBER 13 2016</div>
+                    <button onclick="location.href='Booking.html'" type="button" class="btn btn-info btn-lg">10:50</button>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-9">
+
+                    <div class="well"> MONDAY, NOVEMBER 14 2016</div>
+                    <button onclick="location.href='Booking.html'" type="button" class="btn btn-info btn-lg">12:50</button>
+                    <button onclick="location.href='Booking.html'" type="button" class="btn btn-info btn-lg">14:30</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+        <img style="height:394px; width:253px; border: 4px solid black" src="@routes.Assets.versioned("images/movies/kubo.jpg")" alt="Kubo">
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Director</a>
+                    </h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <div class="panel-body">Travis Knight</div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Starring</a>
+                    </h4>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <div class="panel-body">Matthew McConaughey, Charlize Theron, Rooney Mara</div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Released</a>
+                    </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse">
+                    <div class="panel-body">15/09/2016</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+}

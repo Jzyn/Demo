@@ -1,0 +1,67 @@
+@(loginForm: Form[models.users.Login], user: models.users.User)
+@import helper._
+
+@main("Login", user){
+<form class="form-login" method="post" action="#">
+
+    <div class="form-log-in-with-email">
+
+        <div class="form-white-background">
+
+            <div class="form-title-row">
+                <h1>Log in</h1>
+                @if(loginForm.hasGlobalErrors){
+                    <p class="alert alert-warning">
+                    @loginForm.globalError.message
+                    </p>
+                }
+                @if(flash.containsKey("error")){
+                    <div class="alert alert-warning">
+                    @flash.get("loginRequired")
+                    </div>
+                }
+
+            </div>
+
+            @helper.form(action = controllers.routes.LoginController.loginSubmit()){
+            <div class="form-row">
+                <label>
+                            <span>Email</span>
+                            @*<input type="email" name="email">*@
+                            @inputText(loginForm("email"), '_label -> "", 'class -> "form-control input-xs", 'placeholder -> "Email")
+                        </label>
+            </div>
+
+            <div class="form-row">
+                <label>
+                            <span>Password</span>
+                            @*<input type="password" name="password">*@
+                            @inputPassword(loginForm("password"), '_label -> "", 'class -> "form-control input-xs", 'placeholder -> "Password")
+                        </label>
+            </div>
+
+            <div class="form-row">
+                <button type="submit">Log in</button>
+            </div>
+            }
+        </div>
+
+        <a href="#" class="form-forgotten-password">Forgotten password &middot;</a>
+        <a href="@routes.HomeController.signup()" class="form-create-an-account">Create an account &rarr;</a>
+
+    </div>
+
+    <div class="form-sign-in-with-social">
+
+        <div class="form-row form-title-row">
+            <span class="form-title">Sign with</span>
+        </div>
+
+        <a href="#" class="form-google-button">Google</a>
+        <a href="#" class="form-facebook-button">Facebook</a>
+        <a href="#" class="form-twitter-button">Twitter</a>
+
+    </div>
+
+</form>
+}
