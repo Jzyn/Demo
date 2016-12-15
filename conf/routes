@@ -13,7 +13,13 @@ GET     /contact.html                           controllers.HomeController.conta
 
 GET     /signup.html                           	controllers.HomeController.signup
 
-GET     /login.html                    	        controllers.HomeController.login
+GET     /login                      controllers.LoginController.login
+POST    /loginSubmit                controllers.LoginController.loginSubmit
+GET     /logout                     controllers.LoginController.logout
+
+GET     /adduser                 controllers.HomeController.addUser
+
+POST    /addUserSubmit           controllers.HomeController.addUserSubmit
 
 GET	/inferno.html				controllers.HomeController.inferno
 
@@ -31,9 +37,6 @@ GET	/kubo.html				controllers.HomeController.kubo
 
 GET	/fantasticbeasts.html			controllers.HomeController.fantasticbeasts
 
-GET     /login                      controllers.LoginController.login
-POST    /loginSubmit                controllers.LoginController.loginSubmit
-GET     /logout                     controllers.LoginController.logout
 
 # An example controller showing how to use dependency injection
 GET     /count                      controllers.CountController.count

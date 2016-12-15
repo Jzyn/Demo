@@ -1,22 +1,25 @@
-@(user: models.users.User)
+@import helper._
+@(addUserForm: Form[models.users.User], user: models.users.User)
 @main("Sign up", user){
 <form class="form-basic" method="post" action="#">
 
     <div class="form-title-row">
         <h1>Sign Up</h1>
     </div>
-
+    @form(action = routes.HomeController.addUserSubmit(), 'class -> "form-horizontal", 'role->"form") {
     <div class="form-row">
         <label>
                     <span>Full name</span>
-                    <input type="text" name="name">
+            @inputText(addUserForm("email"), '_label -> "Email",'class -> "form-control")
+                    @*<input type="text" name="name">*@
                 </label>
     </div>
 
     <div class="form-row">
         <label>
                     <span>Email</span>
-                    <input type="email" name="email">
+            @inputText(addUserForm("password"), '_label -> "Password",'class -> "form-control")
+            @*<input type="password" name="password">*@
                 </label>
     </div>
 
@@ -65,7 +68,7 @@
     <div class="form-row">
         <button type="submit">Submit Form</button>
     </div>
-
+    }
     <p style="text-align:center;">Already have an account? <a href="form-login.html"> Sign In Here </a>
 
 </form>

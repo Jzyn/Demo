@@ -58,7 +58,13 @@
 				
 				<ul class="nav navbar-nav navbar-right" style="padding-top: 20px">
 					<li @if(title == "Sign up"){class="active"}><a href="@routes.HomeController.signup()">Sign up</a></li>
-					<li @if(title == "Log in"){class="active"}><a href="@routes.HomeController.login()">Log in  <span class="glyphicon glyphicon-user"></span></a></li>
+					<li @if(title == "Log in"){class="active"}>
+                        @if(user != null){
+                            <a href="@routes.LoginController.logout()">Logout @user.getName</a>
+                        }else{
+                            <a href="@routes.LoginController.login()">Log in  <span class="glyphicon glyphicon-user"></span></a>
+                        }
+                    </li>
 				</ul>
             </div>
             <!-- /.navbar-collapse -->
