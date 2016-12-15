@@ -1,0 +1,85 @@
+@(movies: List[models.Movie], genres: List[models.Genre], user: models.users.User)
+
+<!-- Pass page title and content {html between braces} to the main view -->
+@admin.adminMain("Movies", user) {
+  <!-- HTML content for the index view -->
+  <div class="row">
+      <div class="col-sm-2">
+          <h4>Genres</h4>
+            <div class="list-group">
+                <!-- A link to display all movies -->
+                <a href="@routes.AdminController.movies(0)" class="list-group-item">All movies</a>
+
+                <!-- Start of For loop - For each g in genres add a list item -->
+                <!-- Also show the number of movies in each genre -->
+                @for(g <- genres) {
+                    <a href="@routes.AdminController.movies(g.getId)" class="list-group-item">@g.getName
+                      <span class="badge">@g.getMovies.size()</span>
+                    </a>
+                }
+            </div>
+      </div>
+      <div class="col-sm-10">
+
+          @if(flash.containsKey("success")) {
+              <div class="alert alert-success">
+              @flash.get("success")
+              </div>
+          }
+          <table class="table table-bordered table-hover table-condensed">
+          <thead>
+          <!-- The header row-->
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Genre</th>
+            <th>Lead</th>
+            <th>Stock</th>
+            <th>Price</th>
+          </tr>
+          </thead>
+          <tbody>
+            <!-- Movie row(s) -->
+					<!-- Start of For loop - For each m in movies add a row -->
+          @for(m <- movies) {
+			        <tr>
+                  <td>@m.getId</td>
+                  <td>@m.getName</td>
+                  <td>@m.getGenre.getName</td>
+                  <td>@m.getLead</td>
+                  <td>@m.getStock</td>
+                  <td>&euro; @("%.2f".format(m.getPrice))</td>
+
+                  <!-- Edit movie button -->
+                  <td>
+                      <a href="@routes.AdminController.updateMovie(m.getId)" class="btn-xs btn-danger">
+                      <span class="glyphicon glyphicon-pencil"></span></a>
+                  </td>
+                  <!-- Delete movie button -->
+                  <td>
+                      <a href="@routes.AdminController.deleteMovie(m.getId)" class="btn-xs btn-danger"
+                        onclick="return confirmDel();">
+                        <span class="glyphicon glyphicon-trash"></span>
+                      </a>
+                  </td>
+				    </tr>
+					} <!-- End of For loop -->
+          </tbody>
+        </table>
+        <p>
+          <a href="@routes.AdminController.addMovie()">
+            <button class="btn btn-primary">Add a Movie</button>
+          </a>
+        </p>
+      </div>
+  </div>
+
+  <script>
+    // JavaScript function returns true if user clicks yes, otherwise, false
+    function confirmDel() {
+        return confirm('Are you sure?');
+    }
+  </script>
+
+  <!-- End of content for main -->
+}

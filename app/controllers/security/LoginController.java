@@ -1,4 +1,4 @@
-package controllers;
+package controllers.security;
 
 import play.api.Environment;
 import play.mvc.*;
@@ -42,7 +42,14 @@ public class LoginController extends Controller {
             session().clear();
             session("email", loginForm.get().getEmail());
         }
+
+	User u = User.getUserById(session().get("email"));
+	if (u.getRole().equals("admin")) {
+		return redirect(controllers.routes.AdminController.movies(0));
+	}
+	else {
         return redirect(controllers.routes.HomeController.index());
+	}
     }
 
 

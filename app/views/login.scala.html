@@ -22,7 +22,7 @@
 
             </div>
 
-            @helper.form(action = controllers.routes.LoginController.loginSubmit()){
+            @helper.form(action = controllers.security.routes.LoginController.loginSubmit()){
             <div class="form-row">
                 <label>
                             <span>Email</span>
@@ -46,14 +46,13 @@
         </div>
 
         <a href="#" class="form-forgotten-password">Forgotten password &middot;</a>
-        <a href="@routes.HomeController.signup()" class="form-create-an-account">Create an account &rarr;</a>
 
     </div>
 
     <div class="form-sign-in-with-social">
 
         <div class="form-row form-title-row">
-            <span class="form-title">Sign with</span>
+            <span class="form-title">Sign in with</span>
         </div>
 
         <a href="#" class="form-google-button">Google</a>

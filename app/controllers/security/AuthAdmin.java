@@ -1,4 +1,4 @@
-package controllers;
+package controllers.security;
 
 import play.mvc.*;
 import java.util.concurrent.*;

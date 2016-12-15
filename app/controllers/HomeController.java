@@ -5,8 +5,7 @@ import play.api.Environment;
 import play.mvc.*;
 import play.data.*;
 import play.db.ebean.Transactional;
-import models.users.*;
-import models.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
@@ -14,7 +13,8 @@ import javax.inject.Inject;
 import views.html.*;
 
 // Import models
-
+import models.users.*;
+import models.*;
 
 /**
  * This controller contains an action to handle HTTP requests
@@ -59,7 +59,7 @@ public Result contact() {
         return ok(contact.render(getUserFromSession()));
     }
 
-public Result signup() { return ok(signup.render(addUserForm, getUserFromSession()));}
+//public Result signup() { return ok(signup.render(addUserForm, getUserFromSession()));}
 
 public Result inferno() {
 	return ok(inferno.render(getUserFromSession()));
@@ -93,38 +93,18 @@ public Result fantasticbeasts() {
         return ok(fantasticbeasts.render(getUserFromSession()));
     }
 
+    public Result movies(Long gen) {
+	List<Genre> genresList = Genre.findAll();
+	List<Movie> moviesList = new ArrayList<Movie>();
 
-    public Result users(String email){
-        List<User> userList = new ArrayList<User>();
-
-
-            userList = User.findAll();
-
-        return ok(users.render(userList));
-
-    }
-
-    public Result addUser(){
-        Form<User> addUserForm = formFactory.form(User.class);
-
-        return ok(addUser.render(addUserForm, getUserFromSession()));
-    }
-    @Transactional
-    public Result addUserSubmit(){
-        Form<User> newUserForm = formFactory.form(User.class).bindFromRequest();
-        if(newUserForm.hasErrors()){
-            return badRequest(addUser.render(newUserForm, getUserFromSession()));
-        }
-        User u = newUserForm.get();
-
-        if(u.getEmail() == null){
-            u.save();
-        }
-        else if(u.getEmail() != null){
-            u.update();
-        }
-        flash("success", "User " + u.getEmail() + " has been registered.");
-        return redirect(controllers.routes.HomeController.users(null));
+	if (gen == 0) {
+	moviesList = Movie.findAll();
+	}
+	else {
+	    moviesList = Genre.find.ref(gen).getMovies();
+	}
+	
+	return ok(movies.render(moviesList, genresList, getUserFromSession()));
     }
 
 }

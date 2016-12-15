@@ -50,19 +50,19 @@
 			
                 <ul class="nav navbar-nav" style="padding-top: 20px">
                     <li @if(title == "Whats on"){class="active"}><a href="@routes.HomeController.whatson()">What's on</a> </li>
-                    <li @if(title == "Booking"){class="active"}><a href="@routes.HomeController.booking()">Booking</a> </li>
+                    <li @if(title == "Booking"){class="active"}><a href="@routes.HomeController.movies()">Booking</a> </li>
 					<li @if(title == "Contact"){class="active"}> <a href="@routes.HomeController.contact()">Contact</a></li>
                 </ul>
 				
 				
 				
 				<ul class="nav navbar-nav navbar-right" style="padding-top: 20px">
-					<li @if(title == "Sign up"){class="active"}><a href="@routes.HomeController.signup()">Sign up</a></li>
+
 					<li @if(title == "Log in"){class="active"}>
                         @if(user != null){
-                            <a href="@routes.LoginController.logout()">Logout @user.getName</a>
+                            <a href="controllers.security.routes.LoginController.logout()">Logout @user.getName</a>
                         }else{
-                            <a href="@routes.LoginController.login()">Log in  <span class="glyphicon glyphicon-user"></span></a>
+                            <a href="controllers.security.routes.LoginController.login()">Log in  <span class="glyphicon glyphicon-user"></span></a>
                         }
                     </li>
 				</ul>
