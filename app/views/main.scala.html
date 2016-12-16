@@ -1,3 +1,5 @@
+@import controllers.security.LoginController
+@import controllers.security
 @(title: String, user: models.users.User)(content: Html)
 
 <!DOCTYPE html>
@@ -50,7 +52,7 @@
 			
                 <ul class="nav navbar-nav" style="padding-top: 20px">
                     <li @if(title == "Whats on"){class="active"}><a href="@routes.HomeController.whatson()">What's on</a> </li>
-                    <li @if(title == "Booking"){class="active"}><a href="@routes.HomeController.movies()">Booking</a> </li>
+                    <li @if(title == "movies"){class="active"}><a href="@routes.HomeController.movies()">Booking</a> </li>
 					<li @if(title == "Contact"){class="active"}> <a href="@routes.HomeController.contact()">Contact</a></li>
                 </ul>
 				
@@ -60,9 +62,9 @@
 
 					<li @if(title == "Log in"){class="active"}>
                         @if(user != null){
-                            <a href="controllers.security.routes.LoginController.logout()">Logout @user.getName</a>
+             <!-- This Line -->               <a href="logout">Logout @user.getName</a>
                         }else{
-                            <a href="controllers.security.routes.LoginController.login()">Log in  <span class="glyphicon glyphicon-user"></span></a>
+             <!-- And this Line -->               <a href="login">Log in  <span class="glyphicon glyphicon-user"></span></a>
                         }
                     </li>
 				</ul>

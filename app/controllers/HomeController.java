@@ -1,7 +1,7 @@
 package controllers;
 
-import controllers.*;
-import play.api.Environment;
+import controllers.security.Secured;
+import controllers.security.AuthAdmin;
 import play.mvc.*;
 import play.data.*;
 import play.db.ebean.Transactional;
@@ -13,8 +13,9 @@ import javax.inject.Inject;
 import views.html.*;
 
 // Import models
-import models.users.*;
 import models.*;
+import models.users.*;
+
 
 /**
  * This controller contains an action to handle HTTP requests
@@ -49,10 +50,6 @@ public class HomeController extends Controller {
 
 public Result whatson() {
         return ok(whatson.render(getUserFromSession()));
-    }
-
-public Result booking() {
-        return ok(booking.render(getUserFromSession()));
     }
 
 public Result contact() {

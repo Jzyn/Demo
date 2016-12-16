@@ -2,56 +2,37 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-
+# An example controller showing a sample home page
 
 #######################
 # Public Site  Routes #
 #######################
-GET     /                               	controllers.HomeController.index()
+GET     /                       controllers.HomeController.index()
 
-GET      /whatson.html                           controllers.HomeController.whatson
+GET     /whatson                 controllers.HomeController.whatson
 
-GET      /contact.html                           controllers.HomeController.contact
+# products accepts a parameter default to 0 (Long)
+GET     /movies             controllers.HomeController.movies(gen:Long ?=0L)
 
-#GET     /signup.html                           controllers.HomeController.signup
-
-#GET     /adduser                               controllers.HomeController.addUser
-
-#POST    /addUserSubmit                   controllers.HomeController.addUserSubmit
-
-GET	 /inferno.html				controllers.HomeController.inferno
-
-GET	 /arrival.html				controllers.HomeController.arrival
-
-GET	 /jackreacher.html			controllers.HomeController.jackreacher
-
-GET	 /trolls.html				controllers.HomeController.trolls
-
-GET	 /gott.html				controllers.HomeController.gott
-
-GET	 /joneses.html				controllers.HomeController.joneses
-
-GET	 /kubo.html				controllers.HomeController.kubo
-
-GET	/fantasticbeasts.html		     controllers.HomeController.fantasticbeasts
-
-GET 	/movies				controllers.HomeController.movies(gen:Long ?=0L)
+GET /contact 			controllers.HomeController.contact
 
 
 ################
 # Admin Routes #
 ################
+# products accepts a parameter default to 0 (Long)
+GET     /admin/movies              controllers.AdminController.movies(gen:Long ?=0L)
 
-# movies accepts a parameter default to 0 (Long)
-GET     /admin/movies               controllers.AdminController.movies(gen:Long ?=0L)
-
+# Request to load the add product form
 GET     /admin/addmovie                  controllers.AdminController.addMovie
 
 # Data submitted by the form
 POST    /admin/addMovieSubmit            controllers.AdminController.addMovieSubmit
 
+# Delete a product by an id passed as a parameter
 GET    /admin/delMovie/:id               controllers.AdminController.deleteMovie(id: Long)
 
+# Update a product by id
 GET	    /admin/updateMovie/:id        controllers.AdminController.updateMovie(id: Long)
 
 ################
@@ -60,6 +41,26 @@ GET	    /admin/updateMovie/:id        controllers.AdminController.updateMovie(id
 GET     /login                       controllers.security.LoginController.login
 POST    /loginSubmit                 controllers.security.LoginController.loginSubmit
 GET     /logout                      controllers.security.LoginController.logout
+
+
+################
+# Movie Pages  #
+################
+GET	/inferno				controllers.HomeController.inferno
+
+GET	/arrival			controllers.HomeController.arrival
+
+GET	/jackreacher			controllers.HomeController.jackreacher
+
+GET	/trolls				controllers.HomeController.trolls
+
+GET	/gott				controllers.HomeController.gott
+
+GET	/joneses				controllers.HomeController.joneses
+
+GET	/kubo				controllers.HomeController.kubo
+
+GET	/fantasticbeasts			controllers.HomeController.fantasticbeasts
 
 
 
