@@ -12,7 +12,7 @@ GET     /                       controllers.HomeController.index()
 GET     /whatson                 controllers.HomeController.whatson
 
 # products accepts a parameter default to 0 (Long)
-GET     /movies             controllers.HomeController.movies(gen:Long ?=0L)
+GET     /rooms             controllers.HomeController.rooms(hot:Long ?=0L)
 
 GET /contact 			controllers.HomeController.contact
 
@@ -21,19 +21,19 @@ GET /contact 			controllers.HomeController.contact
 # Admin Routes #
 ################
 # products accepts a parameter default to 0 (Long)
-GET     /admin/movies              controllers.AdminController.movies(gen:Long ?=0L)
+GET     /admin/rooms              controllers.AdminController.rooms(hot:Long ?=0L)
 
 # Request to load the add product form
-GET     /admin/addmovie                  controllers.AdminController.addMovie
+GET     /admin/addroom                  controllers.AdminController.addRoom
 
 # Data submitted by the form
-POST    /admin/addMovieSubmit            controllers.AdminController.addMovieSubmit
+POST    /admin/addRoomSubmit            controllers.AdminController.addRoomSubmit
 
 # Delete a product by an id passed as a parameter
-GET    /admin/delMovie/:id               controllers.AdminController.deleteMovie(id: Long)
+GET    /admin/delRoom/:id               controllers.AdminController.deleteRoom(id: Long)
 
 # Update a product by id
-GET	    /admin/updateMovie/:id        controllers.AdminController.updateMovie(id: Long)
+GET	    /admin/updateRoom/:id        controllers.AdminController.updateRoom(id: Long)
 
 ################
 # Login routes #
@@ -46,7 +46,7 @@ GET     /logout                      controllers.security.LoginController.logout
 ################
 # Movie Pages  #
 ################
-GET	/inferno				controllers.HomeController.inferno
+GET	/clayton				controllers.HomeController.clayton
 
 GET	/arrival			controllers.HomeController.arrival
 

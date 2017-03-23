@@ -18,6 +18,7 @@
 	 <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/footer.css")">
      <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/slick.css")">
      <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/slick-theme.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/search.css")">
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -39,7 +40,7 @@
 			
 			<ul class="nav navbar-nav navbar-left">
                   <a href="@routes.HomeController.index()"><li>
-                   <img src="@routes.Assets.versioned("images/logo.png")" alt="logo">
+                   <img src="@routes.Assets.versioned("images/logo.png")" alt="logo" height="70px" width="195px">
                   </li></a>
                </ul>
                
@@ -51,8 +52,8 @@
 			
 			
                 <ul class="nav navbar-nav" style="padding-top: 20px">
-                    <li @if(title == "Whats on"){class="active"}><a href="@routes.HomeController.whatson()">What's on</a> </li>
-                    <li @if(title == "movies"){class="active"}><a href="@routes.HomeController.movies()">Booking</a> </li>
+                    <li @if(title == "Browse"){class="active"}><a href="@routes.HomeController.whatson()">Browse</a> </li>
+                    <li @if(title == "movies"){class="active"}><a href="@routes.HomeController.rooms()">Booking</a> </li>
 					<li @if(title == "Contact"){class="active"}> <a href="@routes.HomeController.contact()">Contact</a></li>
                 </ul>
 				

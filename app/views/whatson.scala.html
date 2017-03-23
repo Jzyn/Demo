@@ -1,21 +1,19 @@
 @(user: models.users.User)
-@main("Whats on", user){
+@main("Browse", user){
 <div class="row">
 
     <div class="col-md-3">
 
         <div class="list-group">
             <div class="list-group-item">
-                <h5 style="text-align: center; font-size: 2em; font-family: sans-serif;"><strong>Sort by <span class="glyphicon glyphicon-hand-down"></strong></span>
+                <h5 style="text-align: center; font-size: 2em; font-family: sans-serif;"><strong>Filter by <span class="glyphicon glyphicon-hand-down"></strong></span>
                 </h5>
             </div>
-            <a href="#" class="list-group-item">Action</a>
-            <a href="#" class="list-group-item">Animation</a>
-            <a href="#" class="list-group-item">Comedy</a>
-            <a href="#" class="list-group-item">Drama</a>
-            <a href="#" class="list-group-item">Fantasy</a>
-            <a href="#" class="list-group-item">Horror</a>
-            <a href="#" class="list-group-item">Thriller</a>
+            <a href="#" class="list-group-item">Smoke Free</a>
+            <a href="#" class="list-group-item">Family Friendly</a>
+            <a href="#" class="list-group-item">3+ stars</a>
+            <a href="#" class="list-group-item">Include Meals</a>
+
         </div>
     </div>
 
@@ -28,10 +26,10 @@
             <div class="col-sm-3 col-lg-3 col-md-3">
                 <div class="thumbnail">
 
-                    <img src="@routes.Assets.versioned("images/movies/inferno.jpg")" alt="">
+                    <img src="@routes.Assets.versioned("images/Clayton.jpg")" alt="">
                     <div class="caption">
                         <h4 class="pull-right">€7.50</h4>
-                        <h4><a href="@routes.HomeController.inferno()">Inferno</a>
+                        <h4><a href="@routes.HomeController.clayton()">Clayton Hotel</a>
                         </h4>
                         <p>The Cowboy from Toy Story is human in this new Highly acclaimed film</p>
                     </div>

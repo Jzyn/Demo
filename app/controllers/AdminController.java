@@ -35,105 +35,105 @@ public class AdminController extends Controller {
     }
 
 
-    public Result movies(Long gen) {
+    public Result rooms(Long hot) {
 
         // Get list of all genres in ascending order
-        List<Genre> genresList = Genre.findAll();
-        List<Movie> moviesList = new ArrayList<Movie>();
+        List<Hotel> hotelsList = Hotel.findAll();
+        List<Room> roomsList = new ArrayList<Room>();
 
-        if (gen == 0) {
+        if (hot == 0) {
             // Get list of all genres in ascending order
-            moviesList = Movie.findAll();
+            roomsList = Room.findAll();
         }
         else {
             // Get movies for selected genre
             // Find genre first then extract movies for that cat.
-            moviesList = Genre.find.ref(gen).getMovies();
+            roomsList = Hotel.find.ref(hot).getRooms();
         }
 
-        return ok(movies.render(moviesList, genresList, getUserFromSession()));
+        return ok(rooms.render(roomsList, hotelsList, getUserFromSession()));
     }
 
     // Render and return  the add new movie page
     // The page will load and display an empty add movie form
 
-    public Result addMovie() {
+    public Result addRoom() {
 
         // Create a form by wrapping the Movie class
         // in a FormFactory form instance
-        Form<Movie> addMovieForm = formFactory.form(Movie.class);
+        Form<Room> addRoomForm = formFactory.form(Room.class);
 
         // Render the Add Movie View, passing the form object
-        return ok(addMovie.render(addMovieForm, getUserFromSession()));
+        return ok(addRoom.render(addRoomForm, getUserFromSession()));
     }
 
     @Transactional
-    public Result addMovieSubmit() {
+    public Result addRoomSubmit() {
 
         // Create a movie form object (to hold submitted data)
         // 'Bind' the object to the submitted form (this copies the filled form)
-        Form<Movie> newMovieForm = formFactory.form(Movie.class).bindFromRequest();
+        Form<Room> newRoomForm = formFactory.form(Room.class).bindFromRequest();
 
         // Check for errors (based on Movie class annotations)
-        if(newMovieForm.hasErrors()) {
+        if(newRoomForm.hasErrors()) {
             // Display the form again
-            return badRequest(addMovie.render(newMovieForm, getUserFromSession()));
+            return badRequest(addRoom.render(newRoomForm, getUserFromSession()));
         }
 
         // Extract the movie from the form object
-        Movie m = newMovieForm.get();
+        Room r = newRoomForm.get();
 
-        if (m.getId() == null) {
+        if (r.getId() == null) {
             // Save to the database via Ebean (remember Movie extends Model)
-            m.save();
+            r.save();
         }
         // Movie already exists so update
-        else if (m.getId() != null) {
-            m.update();
+        else if (r.getId() != null) {
+            r.update();
         }
 
         // Set a success message in temporary flash
         // for display in return view
-        flash("success", "Movie " + m.getName() + " has been created/ updated");
+        flash("success", "Room " + r.getId() + " has been created/ updated");
 
         // Redirect to the admin home
-        return redirect(routes.AdminController.movies(0));
+        return redirect(routes.AdminController.rooms(0));
     }
 
     // Update a pmovie by ID
     // called when edit button is pressed
     @Transactional
-    public Result updateMovie(Long id) {
+    public Result updateRoom(Long id) {
 
-        Movie m;
-        Form<Movie> movieForm;
+        Room r;
+        Form<Room> roomForm;
 
         try {
             // Find the movie by id
-            m = Movie.find.byId(id);
+            r = Room.find.byId(id);
 
             // Create a form based on the Movie class and fill using m
-            movieForm = formFactory.form(Movie.class).fill(m);
+            roomForm = formFactory.form(Room.class).fill(r);
 
             } catch (Exception ex) {
                 // Display an error message or page
                 return badRequest("error");
         }
         // Render the updateMovie view - pass form as parameter
-        return ok(addMovie.render(movieForm, getUserFromSession()));
+        return ok(addRoom.render(roomForm, getUserFromSession()));
     }
 
     // Delete Movie by id
     @Transactional
-    public Result deleteMovie(Long id) {
+    public Result deleteRoom(Long id) {
 
         // find movie by id and call delete method
-        Movie.find.ref(id).delete();
+        Room.find.ref(id).delete();
         // Add message to flash session
-        flash("success", "Movie has been deleted");
+        flash("success", "Room has been deleted");
 
         // Redirect to movies page
-        return redirect(routes.AdminController.movies(0));
+        return redirect(routes.AdminController.rooms(0));
     }
 
 }

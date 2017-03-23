@@ -43,7 +43,7 @@ public class LoginController extends Controller {
 
 	User u = User.getUserById(session().get("email"));
 	if (u.getRole().equals("admin")) {
-		return redirect(controllers.routes.AdminController.movies(0));
+		return redirect(controllers.routes.AdminController.rooms(0));
 	}
 	else {
         return redirect(controllers.routes.HomeController.index());

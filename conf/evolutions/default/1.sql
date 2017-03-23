@@ -3,28 +3,26 @@
 
 # --- !Ups
 
-create table genre (
+create table hotel (
   id                            bigint not null,
   name                          varchar(255),
-  constraint pk_genre primary key (id)
+  constraint pk_hotel primary key (id)
 );
-create sequence genre_seq;
+create sequence hotel_seq;
 
 create table login (
   email                         varchar(255),
   password                      varchar(255)
 );
 
-create table movie (
+create table room (
   id                            bigint not null,
-  name                          varchar(255),
-  genre_id                      bigint,
-  lead                          varchar(255),
-  stock                         integer,
+  description                   varchar(255),
+  hotel_id                      bigint,
   price                         double,
-  constraint pk_movie primary key (id)
+  constraint pk_room primary key (id)
 );
-create sequence movie_seq;
+create sequence room_seq;
 
 create table user (
   email                         varchar(255) not null,
@@ -34,22 +32,22 @@ create table user (
   constraint pk_user primary key (email)
 );
 
-alter table movie add constraint fk_movie_genre_id foreign key (genre_id) references genre (id) on delete restrict on update restrict;
-create index ix_movie_genre_id on movie (genre_id);
+alter table room add constraint fk_room_hotel_id foreign key (hotel_id) references hotel (id) on delete restrict on update restrict;
+create index ix_room_hotel_id on room (hotel_id);
 
 
 # --- !Downs
 
-alter table movie drop constraint if exists fk_movie_genre_id;
-drop index if exists ix_movie_genre_id;
+alter table room drop constraint if exists fk_room_hotel_id;
+drop index if exists ix_room_hotel_id;
 
-drop table if exists genre;
-drop sequence if exists genre_seq;
+drop table if exists hotel;
+drop sequence if exists hotel_seq;
 
 drop table if exists login;
 
-drop table if exists movie;
-drop sequence if exists movie_seq;
+drop table if exists room;
+drop sequence if exists room_seq;
 
 drop table if exists user;
 

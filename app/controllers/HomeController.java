@@ -43,8 +43,7 @@ public class HomeController extends Controller {
         return User.getUserById(session().get("email"));
     }
 
-
-        public Result index() {
+    public Result index() {
         return ok(index.render(getUserFromSession()));
     }
 
@@ -58,8 +57,8 @@ public Result contact() {
 
 //public Result signup() { return ok(signup.render(addUserForm, getUserFromSession()));}
 
-public Result inferno() {
-	return ok(inferno.render(getUserFromSession()));
+public Result clayton() {
+	return ok(clayton.render(getUserFromSession()));
     }
 
 public Result arrival() {
@@ -90,18 +89,18 @@ public Result fantasticbeasts() {
         return ok(fantasticbeasts.render(getUserFromSession()));
     }
 
-    public Result movies(Long gen) {
-	List<Genre> genresList = Genre.findAll();
-	List<Movie> moviesList = new ArrayList<Movie>();
+    public Result rooms(Long hot) {
+	List<Hotel> hotelsList = Hotel.findAll();
+	List<Room> roomsList = new ArrayList<Room>();
 
-	if (gen == 0) {
-	moviesList = Movie.findAll();
+	if (hot == 0) {
+	roomsList = Room.findAll();
 	}
 	else {
-	    moviesList = Genre.find.ref(gen).getMovies();
+	    roomsList = Hotel.find.ref(hot).getRooms();
 	}
 	
-	return ok(movies.render(moviesList, genresList, getUserFromSession()));
+	return ok(rooms.render(roomsList, hotelsList, getUserFromSession()));
     }
 
 }

@@ -1,0 +1,38 @@
+@import helper._
+
+@(addRoomForm: play.data.Form[models.Room], user: models.users.User)
+
+@* helpers will be used to create the form dynamically, though static HTML form element also work. *@
+
+@admin.adminMain("Add Room", user) {
+    <h3>Add a new Room</h3>
+
+        <!-- Use the views.html.helpers package to create the form -->
+    @form(action = routes.AdminController.addRoomSubmit(), 'class -> "form-horizontal", 'role->"form") {
+
+        <!-- Build the form, adding an input for each field -->
+        <!-- Note the label parameter -->
+        @inputText(addRoomForm("description"), '_label -> "Name",'class -> "form-control")
+
+        @select(
+            addRoomForm("hotel.id"),
+
+            options(Hotel.options),
+            '_label -> "Hotel", '_default -> "-- Choose the hotel --",
+            '_showConstraints -> false, 'class -> "form-control"
+        )
+        @inputText(addRoomForm("price"), '_label -> "Price",'class -> "form-control")
+
+        <!-- Hidden ID field - required for movie updates -->
+        @inputText(addRoomForm("id"), '_label -> "", 'hidden -> "hidden")
+
+        <!-- Add a submit button -->
+    <div class="actions">
+        <input type="submit" value="Save" class="btn btn-primary">
+        <a href="@routes.AdminController.rooms()"><button class="btn btn-warning">Cancel</button>
+        </a>
+    </div>
+} <!-- End Form definition -->
+
+    } <!-- End of page content -->
+

@@ -8,7 +8,7 @@ import play.data.validation.*;
 
 // Product Entity managed by the ORM
 @Entity
-public class Genre extends Model {
+public class Hotel extends Model {
 
     // Properties
     // Annotate id as the primary key
@@ -19,25 +19,25 @@ public class Genre extends Model {
     private String name;
 
     @OneToMany
-    private List<Movie> movies;
+    private List<Room> rooms;
 
     // Default constructor
-    public Genre() {
+    public Hotel() {
 
     }
 
-    public Genre(Long id, String name, List<Movie> movies) {
+    public Hotel(Long id, String name, List<Room> rooms) {
         this.setId(id);
         this.setName(name);
-        this.setMovies(movies);
+        this.setRooms(rooms);
     }
 
     //Generic query helper for entity Computer with id Long
-    public static Finder<Long,Genre> find = new Finder<Long,Genre>(Genre.class);
+    public static Finder<Long,Hotel> find = new Finder<Long,Hotel>(Hotel.class);
 
     //Find all Movies in the database in ascending order by name
-    public static List<Genre> findAll() {
-        return Genre.find.where().orderBy("name asc").findList();
+    public static List<Hotel> findAll() {
+        return Hotel.find.where().orderBy("name asc").findList();
     }
 
     // Generate options for an HTML select control
@@ -45,8 +45,8 @@ public class Genre extends Model {
         LinkedHashMap<String,String> options = new LinkedHashMap<>();
 
         // Get all genres from the DB and add to the options Hash map
-        for(Genre g: Genre.findAll()) {
-            options.put(g.getId().toString(), g.getName());
+        for(Hotel h: Hotel.findAll()) {
+            options.put(h.getId().toString(), h.getName());
         }
         return options;
     }
@@ -67,11 +67,11 @@ public class Genre extends Model {
         this.name = name;
     }
 
-    public List<Movie> getMovies() {
-        return movies;
+    public List<Room> getRooms() {
+        return rooms;
     }
 
-    public void setMovies(List<Movie> movies) {
-        this.movies = movies;
+    public void setRooms(List<Room> rooms) {
+        this.rooms = rooms;
     }
 }

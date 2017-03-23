@@ -1,0 +1,81 @@
+@(rooms: List[models.Room], hotels: List[models.Hotel], user: models.users.User)
+
+<!-- Pass page title and content {html between braces} to the main view -->
+@admin.adminMain("Rooms", user) {
+    <!-- HTML content for the index view -->
+    <div class="row">
+        <div class="col-sm-2">
+            <h4>Hotels</h4>
+            <div class="list-group">
+                    <!-- A link to display all movies -->
+                <a href="@routes.AdminController.rooms(0)" class="list-group-item">All hotels</a>
+
+                    <!-- Start of For loop - For each g in genres add a list item -->
+                    <!-- Also show the number of movies in each genre -->
+                @for(h <- hotels) {
+                    <a href="@routes.AdminController.rooms(h.getId)" class="list-group-item">@h.getName
+                    <span class="badge">@h.getRooms.size()</span>
+                    </a>
+                }
+            </div>
+        </div>
+        <div class="col-sm-10">
+
+            @if(flash.containsKey("success")) {
+                <div class="alert alert-success">
+                @flash.get("success")
+                </div>
+            }
+            <table class="table table-bordered table-hover table-condensed">
+                <thead>
+                        <!-- The header row-->
+                    <tr>
+                        <th>ID</th>
+                        <th>Description</th>
+                        <th>Hotel</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <!-- Movie row(s) -->
+                        <!-- Start of For loop - For each m in movies add a row -->
+                    @for(r <- rooms) {
+                        <tr>
+                            <td>@r.getId</td>
+                            <td>@r.getDescription</td>
+                            <td>@r.getHotel.getName</td>
+                            <td>&euro; @("%.2f".format(r.getPrice))</td>
+
+                                <!-- Edit movie button -->
+                            <td>
+                                <a href="@routes.AdminController.updateRoom(r.getId)" class="btn-xs btn-danger">
+                                    <span class="glyphicon glyphicon-pencil"></span></a>
+                            </td>
+                                <!-- Delete movie button -->
+                            <td>
+                                <a href="@routes.AdminController.deleteRoom(r.getId)" class="btn-xs btn-danger"
+                                onclick="return confirmDel();">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </a>
+                            </td>
+                        </tr>
+                    } <!-- End of For loop -->
+                </tbody>
+            </table>
+            <p>
+                <a href="@routes.AdminController.addRoom()">
+                    <button class="btn btn-primary">Add a Room</button>
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+            // JavaScript function returns true if user clicks yes, otherwise, false
+            function confirmDel() {
+                return confirm('Are you sure?');
+            }
+    </script>
+
+        <!-- End of content for main -->
+}
