@@ -26,16 +26,19 @@ public class Room extends Model {
     @Constraints.Required
     private double price;
 
+    public String state;
+
     // Default constructor
     public  Room() {
     }
 
     // Constructor to initialise object
-    public Room(Long id, String description, Hotel hotel, double price) {
+    public Room(Long id, String description, Hotel hotel, double price, String state) {
         this.id = id;
         this.description = description;
         this.hotel = hotel;
         this.price = price;
+        this.state = state;
     }
 
     //Generic query helper for entity Computer with id Long
@@ -60,6 +63,14 @@ public class Room extends Model {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
     public double getPrice() {

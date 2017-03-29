@@ -1,4 +1,4 @@
-@import controllers.security.LoginController
+@import controllers.security.LogonController
 @import controllers.security
 @(title: String, user: models.users.User)(content: Html)
 
@@ -10,6 +10,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
         <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/bootstrap.min.css")">
 	 <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/small-business.css")">
 	 <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/shop-homepage.css")">
@@ -24,9 +25,10 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
-	
+
+
     <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav style="background-color: black" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -37,28 +39,28 @@
                     <span class="icon-bar"></span>
                 </button>
             </div>
-			
+
 			<ul class="nav navbar-nav navbar-left">
                   <a href="@routes.HomeController.index()"><li>
-                   <img src="@routes.Assets.versioned("images/logo.png")" alt="logo" height="70px" width="195px">
+                   <img src="@routes.Assets.versioned("images/logo.png")" alt="logo" height="70px" width="390px">
                   </li></a>
                </ul>
-               
 
-			
+
+
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			
-			
-			
+
+
+
                 <ul class="nav navbar-nav" style="padding-top: 20px">
                     <li @if(title == "Browse"){class="active"}><a href="@routes.HomeController.whatson()">Browse</a> </li>
                     <li @if(title == "movies"){class="active"}><a href="@routes.HomeController.rooms()">Booking</a> </li>
 					<li @if(title == "Contact"){class="active"}> <a href="@routes.HomeController.contact()">Contact</a></li>
                 </ul>
-				
-				
-				
+
+
+
 				<ul class="nav navbar-nav navbar-right" style="padding-top: 20px">
 
 					<li @if(title == "Log in"){class="active"}>
@@ -86,43 +88,19 @@
      </div>
 
 	 <!-- Footer -->
-        <div class="footer">
+
+        <div style="overflow: auto" class="footer">
 		<div class="container">
-			<p class="text-muted">- Copyright © Tymoteusz & Jason -</p>
+			<p class="text-muted">- Copyright © Jason -</p>
 		</div>
 	</div>
 
-    
+
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="@routes.Assets.versioned("javascripts/jquery.js")" type="text/javascript" charset="utf-8"></script>
-    <script src="@routes.Assets.versioned("javascripts/slick.js")" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript">
-		$(document).on('ready', function() {
-		  $(".regular").slick({
-			dots: true,
-			infinite: true,
-			slidesToShow: 3,
-			slidesToScroll: 3
-		  });
-		  $(".center").slick({
-			dots: true,
-			infinite: true,
-			centerMode: true,
-			slidesToShow: 3,
-			slidesToScroll: 3
-		  });
-		  $(".variable").slick({
-			dots: true,
-			infinite: true,
-			variableWidth: true
-		  });
-		});
-	</script>
+
+
 </body>
 
 </html>

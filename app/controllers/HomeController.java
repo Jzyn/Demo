@@ -38,6 +38,15 @@ public class HomeController extends Controller {
     public HomeController(FormFactory f) {
         this.formFactory = f;
     }
+    @Transactional
+    public Result bookRoom(Long id){
+        Room r = new Room();
+        r.find.ref(id).getState();
+        if(r.getState() == "Booked"){
+            flash("oops", "Room " + r.getId() + " has already been booked");
+        }
+        return ok(index.render(getUserFromSession()));
+    }
 
     private User getUserFromSession(){
         return User.getUserById(session().get("email"));
@@ -58,36 +67,13 @@ public Result contact() {
 //public Result signup() { return ok(signup.render(addUserForm, getUserFromSession()));}
 
 public Result clayton() {
-	return ok(clayton.render(getUserFromSession()));
+        return ok(clayton.render(getUserFromSession()));
     }
 
-public Result arrival() {
-        return ok(arrival.render(getUserFromSession()));
-    }
+    public Result hilton() {
+        return ok(hilton.render(getUserFromSession()));
+}
 
-public Result jackreacher() {
-        return ok(jackreacher.render(getUserFromSession()));
-    }
-
-public Result trolls() {
-        return ok(trolls.render(getUserFromSession()));
-    }
-
-public Result gott() {
-        return ok(gott.render(getUserFromSession()));
-    }
-
-public Result joneses() {
-        return ok(joneses.render(getUserFromSession()));
-    }
-
-public Result kubo() {
-        return ok(kubo.render(getUserFromSession()));
-    }
-
-public Result fantasticbeasts() {
-        return ok(fantasticbeasts.render(getUserFromSession()));
-    }
 
     public Result rooms(Long hot) {
 	List<Hotel> hotelsList = Hotel.findAll();

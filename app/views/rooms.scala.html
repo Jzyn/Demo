@@ -34,6 +34,7 @@
                         <th>Description</th>
                         <th>Hotel</th>
                         <th>Price</th>
+                        <th>State</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,6 +46,13 @@
                             <td>@r.getDescription</td>
                             <td>@r.getHotel.getName</td>
                             <td>&euro; @("%.2f".format(r.getPrice))</td>
+                            <td>@r.getState</td>
+
+                            <td>
+                                <a href="HomeController.bookRoom(r.getId)" class="btn-xs btn-danger">
+                                    <span class="glyphicon glyphicon-pencil"></span></a>
+
+                            </td>
                         </tr>
                     } <!-- End of For loop -->
                 </tbody>

@@ -38,29 +38,20 @@ GET	    /admin/updateRoom/:id        controllers.AdminController.updateRoom(id: 
 ################
 # Login routes #
 ################
-GET     /login                       controllers.security.LoginController.login
-POST    /loginSubmit                 controllers.security.LoginController.loginSubmit
-GET     /logout                      controllers.security.LoginController.logout
+GET     /login                       controllers.security.LogonController.login
+POST    /loginSubmit                 controllers.security.LogonController.loginSubmit
+GET     /logout                      controllers.security.LogonController.logout
 
 
 ################
-# Movie Pages  #
+# Hotel Pages  #
 ################
 GET	/clayton				controllers.HomeController.clayton
 
-GET	/arrival			controllers.HomeController.arrival
+GET	/hilton			controllers.HomeController.hilton
 
-GET	/jackreacher			controllers.HomeController.jackreacher
 
-GET	/trolls				controllers.HomeController.trolls
 
-GET	/gott				controllers.HomeController.gott
-
-GET	/joneses				controllers.HomeController.joneses
-
-GET	/kubo				controllers.HomeController.kubo
-
-GET	/fantasticbeasts			controllers.HomeController.fantasticbeasts
 
 
 

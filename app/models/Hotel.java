@@ -18,6 +18,9 @@ public class Hotel extends Model {
     @Constraints.Required
     private String name;
 
+    @Constraints.Required
+    private String filter;
+
     @OneToMany
     private List<Room> rooms;
 
@@ -26,9 +29,10 @@ public class Hotel extends Model {
 
     }
 
-    public Hotel(Long id, String name, List<Room> rooms) {
+    public Hotel(Long id, String name, String filter, List<Room> rooms) {
         this.setId(id);
         this.setName(name);
+        this.setFilter(filter);
         this.setRooms(rooms);
     }
 
@@ -66,6 +70,10 @@ public class Hotel extends Model {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getFilter() { return filter; }
+
+    public void setFilter(String filter) { this.filter = filter; }
 
     public List<Room> getRooms() {
         return rooms;

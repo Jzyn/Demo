@@ -49,6 +49,7 @@ public class User extends Model {
             return find.byId(id);
     }
 
+
     public String getEmail() {
         return email;
     }
@@ -64,6 +65,7 @@ public class User extends Model {
     public void setRole(String role) {
         this.role = role;
     }
+
 
     public String getName() {
         return name;

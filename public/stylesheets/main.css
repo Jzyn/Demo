@@ -1,0 +1,35 @@
+header{
+    background-color: orange;
+}
+#logo{
+    float: left;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+
+    overflow: hidden;
+    padding-left: 70%;
+}
+
+li {
+    border-right: inset orange;
+    float: left;
+}
+
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #ffff00;
+}
+
+.active {
+    background-color: #4CAF50;
+}

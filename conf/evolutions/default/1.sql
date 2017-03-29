@@ -6,6 +6,7 @@
 create table hotel (
   id                            bigint not null,
   name                          varchar(255),
+  filter                        varchar(255),
   constraint pk_hotel primary key (id)
 );
 create sequence hotel_seq;
@@ -20,6 +21,7 @@ create table room (
   description                   varchar(255),
   hotel_id                      bigint,
   price                         double,
+  state                         varchar(255),
   constraint pk_room primary key (id)
 );
 create sequence room_seq;
