@@ -39,15 +39,25 @@ public class HomeController extends Controller {
         this.formFactory = f;
     }
     @Transactional
-    public Result bookRoom(Long id){
+    public Result bookRoom(Long hot){
+  List<Hotel> hotelsList = Hotel.findAll();
+	List<Room> roomsList = new ArrayList<Room>();
         Room r = new Room();
-        r.find.ref(id).getState();
-        if(r.getState() == "Booked"){
-            flash("oops", "Room " + r.getId() + " has already been booked");
+        //r.find.ref(id).setState("booked");
+        if(r.getState() == "Available"){
+           flash("oops, Room has already been booked");
         }
-        return ok(index.render(getUserFromSession()));
-    }
+  
 
+	if (hot == 0) {
+	roomsList = Room.findAll();
+	}
+	else {
+	    roomsList = Hotel.find.ref(hot).getRooms();
+	}
+	
+	return ok(rooms.render(roomsList, hotelsList, getUserFromSession()));
+}
     private User getUserFromSession(){
         return User.getUserById(session().get("email"));
     }

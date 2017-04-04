@@ -14,7 +14,9 @@ GET     /whatson                 controllers.HomeController.whatson
 # products accepts a parameter default to 0 (Long)
 GET     /rooms             controllers.HomeController.rooms(hot:Long ?=0L)
 
-GET /contact 			controllers.HomeController.contact
+GET     /contact 			controllers.HomeController.contact
+
+GET     /bookRoom                  controllers.HomeController.bookRoom(id: Long)
 
 
 ################
@@ -49,6 +51,7 @@ GET     /logout                      controllers.security.LogonController.logout
 GET	/clayton				controllers.HomeController.clayton
 
 GET	/hilton			controllers.HomeController.hilton
+
 
 
 
