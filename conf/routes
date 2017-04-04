@@ -18,6 +18,8 @@ GET     /contact 			controllers.HomeController.contact
 
 GET     /bookRoom                  controllers.HomeController.bookRoom(id: Long)
 
+GET     /bookings                   controllers.HomeController.bookings()
+
 
 ################
 # Admin Routes #

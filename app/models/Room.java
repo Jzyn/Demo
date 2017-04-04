@@ -47,7 +47,20 @@ public class Room extends Model {
     // Find all Movies in the database
     public static List<Room> findAll() {
         return Room.find.all();
+}
+
+// Generate options for an HTML select control
+    public static Map<String,String> options() {
+        LinkedHashMap<String,String> options = new LinkedHashMap<>();
+
+        // Get all genres from the DB and add to the options Hash map
+        for(Hotel h: Hotel.findAll()) {
+            options.put(h.getId().toString(), h.getName());
+        }
+        return options;
     }
+
+    
 
     public Long getId() {
         return id;

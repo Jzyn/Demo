@@ -68,6 +68,8 @@
              <!-- This Line -->               <a href="logout">Logout @user.getName</a>
                         }else{
              <!-- And this Line -->               <a href="login">Log in  <span class="glyphicon glyphicon-user"></span></a>
+
+						<li @if(title == "My Bookings"){class="active"}><a href="@routes.HomeController.bookings()">My Bookings</a> <li>
                         }
                     </li>
 				</ul>

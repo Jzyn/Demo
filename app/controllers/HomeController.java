@@ -99,4 +99,8 @@ public Result clayton() {
 	return ok(rooms.render(roomsList, hotelsList, getUserFromSession()));
     }
 
+ public Result bookings() {
+        return ok(bookings.render(getUserFromSession()));
+    }
+
 }
