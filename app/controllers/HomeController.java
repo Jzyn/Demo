@@ -38,26 +38,7 @@ public class HomeController extends Controller {
     public HomeController(FormFactory f) {
         this.formFactory = f;
     }
-    @Transactional
-    public Result bookRoom(Long hot){
-  List<Hotel> hotelsList = Hotel.findAll();
-	List<Room> roomsList = new ArrayList<Room>();
-        Room r = new Room();
-        //r.find.ref(id).setState("booked");
-        if(r.getState() == "Available"){
-           flash("oops, Room has already been booked");
-        }
-  
 
-	if (hot == 0) {
-	roomsList = Room.findAll();
-	}
-	else {
-	    roomsList = Hotel.find.ref(hot).getRooms();
-	}
-	
-	return ok(rooms.render(roomsList, hotelsList, getUserFromSession()));
-}
     private User getUserFromSession(){
         return User.getUserById(session().get("email"));
     }
@@ -101,13 +82,13 @@ public Result clayton() {
     }
 
     public Result hotels(String fil) {
-	List<Hotel> hotelsList = Hotel.findAll();
+        List<Hotel> hotelsList;
 
 	if (fil == null) {
 		hotelsList = Hotel.findAll();
 	}
 	else {
-	hotelsList.find.ref(fil);
+	    hotelsList = (List<Hotel>) Hotel.findFilter.ref(fil);
 	}
 	 return ok(whatson.render(hotelsList, getUserFromSession()));
 	}

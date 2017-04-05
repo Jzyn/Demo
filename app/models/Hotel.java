@@ -38,6 +38,7 @@ public class Hotel extends Model {
 
     //Generic query helper for entity Computer with id Long
     public static Finder<Long,Hotel> find = new Finder<Long,Hotel>(Hotel.class);
+    public static Finder<String,Hotel> findFilter = new Finder<String,Hotel>(Hotel.class);
 
     //Find all Movies in the database in ascending order by name
     public static List<Hotel> findAll() {
