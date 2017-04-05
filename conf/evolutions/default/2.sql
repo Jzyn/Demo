@@ -17,7 +17,6 @@ insert into room (id,hotel_id,description,price,state) values ( 6,4,'Free Wifi, 
 insert into room (id,hotel_id,description,price,state) values ( 7,4,'Free Wifi, Flat Screen',15,'Available' );
 insert into room (id,hotel_id,description,price,state) values ( 8,5,'Free Wifi, Flat Screen',15,'Available' );
 
-insert into booking ();
 
 insert into User (email,name,password,role) values ( 'admin@products.com', 'Alice Admin', 'password', 'admin' );
 

@@ -34,17 +34,8 @@ create table user (
   constraint pk_user primary key (email)
 );
 
-create table booking (
-  id                            bigint not null,
-                                               
-  constraint pk_booking primary key (id)
-);
-
 alter table room add constraint fk_room_hotel_id foreign key (hotel_id) references hotel (id) on delete restrict on update restrict;
 create index ix_room_hotel_id on room (hotel_id);
-
-alter table booking add constraint fk_booking_hotel_id foreign key (hotel_id) references hotel (id) on delete restrict on update restrict;
-alter table booking add constraint fk_booking_user_name foreign key (user_name) references user (name) on delete restrict on update restrict;
 
 
 # --- !Downs
@@ -61,6 +52,4 @@ drop table if exists room;
 drop sequence if exists room_seq;
 
 drop table if exists user;
-
-drop table if exists booking;
 

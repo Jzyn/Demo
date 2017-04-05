@@ -67,7 +67,8 @@ public class HomeController extends Controller {
     }
 
 public Result whatson() {
-        return ok(whatson.render(getUserFromSession()));
+ List<Hotel> hotelsList = Hotel.findAll();
+        return ok(whatson.render(hotelsList, getUserFromSession()));
     }
 
 public Result contact() {
@@ -98,6 +99,18 @@ public Result clayton() {
 	
 	return ok(rooms.render(roomsList, hotelsList, getUserFromSession()));
     }
+
+    public Result hotels(String fil) {
+	List<Hotel> hotelsList = Hotel.findAll();
+
+	if (fil == null) {
+		hotelsList = Hotel.findAll();
+	}
+	else {
+	hotelsList.find.ref(fil);
+	}
+	 return ok(whatson.render(hotelsList, getUserFromSession()));
+	}
 
  public Result bookings() {
         return ok(bookings.render(getUserFromSession()));
