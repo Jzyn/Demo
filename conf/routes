@@ -9,7 +9,9 @@
 #######################
 GET     /                       controllers.HomeController.index()
 
-GET     /whatson                 controllers.HomeController.whatson
+GET     /whatson                 controllers.HomeController.whatson(fil?="")
+
+GET     /bookRoom                    controllers.HomeController.bookRoom
 
 # products accepts a parameter default to 0 (Long)
 GET     /rooms             controllers.HomeController.rooms(hot:Long ?=0L)

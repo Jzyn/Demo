@@ -50,15 +50,15 @@ public class Room extends Model {
 }
 
 // Generate options for an HTML select control
-    public static Map<String,String> options() {
-        LinkedHashMap<String,String> options = new LinkedHashMap<>();
+public static Map<String,String> options() {
+    LinkedHashMap<String,String> options = new LinkedHashMap<>();
 
-        // Get all genres from the DB and add to the options Hash map
-        for(Hotel h: Hotel.findAll()) {
-            options.put(h.getId().toString(), h.getName());
-        }
-        return options;
+    // Get all genres from the DB and add to the options Hash map
+    for(Hotel h: Hotel.findAll()) {
+        options.put(h.getRooms().toString(), h.getName());
     }
+    return options;
+}
 
     
 

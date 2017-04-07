@@ -3,8 +3,8 @@
 # --- !Ups
 
 insert into hotel (id,name,filter) values ( 1,'The Ripley Court Hotel','Smoke Free' );
-insert into hotel (id,name,filter) values ( 2,'Jurys Inn','Include Meals' );
-insert into hotel (id,name,filter) values ( 3,'Clayton Hotel','Include Meals' );
+insert into hotel (id,name,filter) values ( 2,'Jurys Inn','IncludeMeals' );
+insert into hotel (id,name,filter) values ( 3,'Clayton Hotel','IncludeMeals' );
 insert into hotel (id,name,filter) values ( 4,'Temple Bar Inn','Smoke Free' );
 insert into hotel (id,name,filter) values ( 5,'Hillton Garden Inn','Family Friendly' );
 

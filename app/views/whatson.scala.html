@@ -9,12 +9,12 @@
                 <h5 style="text-align: center; font-size: 2em; font-family: sans-serif;"><strong>Filter by <span class="glyphicon glyphicon-hand-down"></strong></span>
                 </h5>
             </div>
-	  <a href="@routes.HomeController.hotels()" class="list-group-item">Filter Options</a>
+
 
                     <!-- Start of For loop - For each g in genres add a list item -->
                     <!-- Also show the number of movies in each genre -->
                 @for(h <- hotels) {
-                    <a href="@routes.HomeController.hotels(h.getFilter)" class="list-group-item">@h.getName
+                    <a href="@routes.HomeController.whatson(h.getFilter)" class="list-group-item">@h.getFilter
                     
                     </a>
                 }

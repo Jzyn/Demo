@@ -54,7 +54,7 @@
 
 
                 <ul class="nav navbar-nav" style="padding-top: 20px">
-                    <li @if(title == "Browse"){class="active"}><a href="@routes.HomeController.whatson()">Browse</a> </li>
+                    <li @if(title == "Browse"){class="active"}><a href="@routes.HomeController.whatson("")">Browse</a> </li>
                     <li @if(title == "movies"){class="active"}><a href="@routes.HomeController.rooms()">Booking</a> </li>
 					<li @if(title == "Contact"){class="active"}> <a href="@routes.HomeController.contact()">Contact</a></li>
                 </ul>

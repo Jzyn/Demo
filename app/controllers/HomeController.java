@@ -47,10 +47,17 @@ public class HomeController extends Controller {
         return ok(index.render(getUserFromSession()));
     }
 
-public Result whatson() {
- List<Hotel> hotelsList = Hotel.findAll();
-        return ok(whatson.render(hotelsList, getUserFromSession()));
+public Result whatson(String fil) {
+    List<Hotel> hotelsList;
+
+    if (fil == null) {
+        hotelsList = Hotel.findAll();
     }
+    else {
+        hotelsList = (List<Hotel>) Hotel.findFilter.ref(fil);
+    }
+    return ok(whatson.render(hotelsList, getUserFromSession()));
+}
 
 public Result contact() {
         return ok(contact.render(getUserFromSession()));
@@ -81,20 +88,20 @@ public Result clayton() {
 	return ok(rooms.render(roomsList, hotelsList, getUserFromSession()));
     }
 
-    public Result hotels(String fil) {
-        List<Hotel> hotelsList;
+    public Result bookRoom() {
 
-	if (fil == null) {
-		hotelsList = Hotel.findAll();
-	}
-	else {
-	    hotelsList = (List<Hotel>) Hotel.findFilter.ref(fil);
-	}
-	 return ok(whatson.render(hotelsList, getUserFromSession()));
-	}
+        // Create a form by wrapping the Movie class
+        // in a FormFactory form instance
+        Form<Room> bookRoomForm = formFactory.form(Room.class);
+
+        // Render the Add Movie View, passing the form object
+        return ok(bookRoom.render(bookRoomForm, getUserFromSession()));
+    }
+
 
  public Result bookings() {
         return ok(bookings.render(getUserFromSession()));
     }
 
 }
+
