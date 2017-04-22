@@ -12,7 +12,7 @@
 
                     <!-- Start of For loop - For each g in genres add a list item -->
                     <!-- Also show the number of movies in each genre -->
-                @for(h <- hotels) {
+            <    @for(h <- hotels) {
                     <a href="@routes.AdminController.rooms(h.getId)" class="list-group-item">@h.getName
                     <span class="badge">@h.getRooms.size()</span>
                     </a>

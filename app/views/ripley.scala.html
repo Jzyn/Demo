@@ -1,0 +1,43 @@
+@(user: models.users.User)
+@main("The Ripley", user){
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="list-group">
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="page-header">
+                <h1>The Ripley Court Hotel</h1>
+            </div>
+
+            <br>
+            <br>
+            <div class="tophalf">
+
+                <p>This hotel is conveniently situated close to the Central Business Park and Leopardstown racecourse and serviced by the Luas light rail system and Aircoach.
+                    The bedrooms are spacious and well appointed. Contemporary in style, the open-plan public areas include a spacious lounge bar with snack food available throughout the day
+                    and lunch and dinner is served in the Restaurant. There is a gym and a choice of conference rooms including the Power Suite. Underground parking is available.</p>
+            </div>
+
+
+
+
+        </div>
+
+        <div style="padding-bottom: 20px;" class="col-md-3">
+            <img style="height:254px; width:394px; border: 4px solid black;" src="@routes.Assets.versioned("images/hotels/Ripley.jpg")" alt="Ripley Hotel">
+
+        </div>
+
+        <div class="col-md-3">
+            <div class="row">
+
+                <div  class="well">Check out the rooms available here</div>
+                <button onclick="location.href='@routes.HomeController.rooms(1)'" type="button" class="btn btn-info btn-lg">View Rooms</button>
+            </div>
+
+        </div>
+    </div>
+}

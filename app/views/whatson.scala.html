@@ -1,4 +1,4 @@
-@(hotels: List[models.Hotel], user: models.users.User)
+@( rooms: List[models.Room],user: models.users.User)
 @main("Browse", user){
 <div class="row">
 
@@ -13,66 +13,99 @@
 
                     <!-- Start of For loop - For each g in genres add a list item -->
                     <!-- Also show the number of movies in each genre -->
-                @for(h <- hotels) {
-                    <a href="@routes.HomeController.whatson(h.getFilter)" class="list-group-item">@h.getFilter
-                    
-                    </a>
-                }
-            <a href="#" class="list-group-item">Smoke Free</a>
-            <a href="#" class="list-group-item"></a>
-            <a href="#" class="list-group-item"></a>
-            <a href="#" class="list-group-item"></a>
-            <a href="#" class="list-group-item"></a>
-            <a href="#" class="list-group-item"></a>
-            <a href="#" class="list-group-item">Family Friendly</a>
-            <a href="#" class="list-group-item">
-            <a href="#" class="list-group-item"></a>
-            <a href="#" class="list-group-item"></a>
-            <a href="#" class="list-group-item"></a>
-            <a href="#" class="list-group-item"></a>
-            <a href="#" class="list-group-item">Include Meals</a>
-            <a href="#" class="list-group-item"></a>
-            <a href="#" class="list-group-item"></a>
-            <a href="#" class="list-group-item"></a>
-            <a href="#" class="list-group-item"></a>
-            <a href="#" class="list-group-item"></a>
+
 
         </div>
     </div>
 
-    <div style="float: right" class="col-md-9">
-        <a href="@routes.HomeController.clayton()">
-        <img style="height:200px; width:300px; border: 10px solid red; margin-left: 700px; margin-bottom: 1em;" src="@routes.Assets.versioned("images/Clayton.jpg")">
-        </a>
+    <div style="float: right;margin-top: 2em;" class="col-md-9">
+        <table style="border:none;
+            border-collapse:collapse;">
+            <tr> <td>  <a href="@routes.HomeController.clayton()">
+        <img style="height:200px; width:300px; border: 10px solid red; margin-left: 350px; margin-bottom: 6em;" src="@routes.Assets.versioned("images/hotels/Clayton.jpg")">
+        </a> </td>
+
+            <td  style="position: absolute; margin-left: 20px;"> <h4 style="color: blue"> The Clayton Hotel </h4>
+                 <h5 style="color: blue"> The Clayton Hotel </h5>
+                 <p> The Clayton Hotel </p> </td>
+            </tr>
+        </table>
 
     </div>
 
+
     <div style="float: right" class="col-md-9">
-        <a href="@routes.HomeController.clayton()">
-            <img style="height:200px; width:300px; border: 10px solid red; margin-left: 700px; margin-bottom: 1em;" src="@routes.Assets.versioned("images/Hilton.jpg")">
-        </a>
+        <table style="border:none;
+            border-collapse:collapse;">
+            <tr> <td>  <a href="@routes.HomeController.hilton()">
+                <img style="height:200px; width:300px; border: 10px solid red; margin-left: 350px; margin-bottom: 6em;" src="@routes.Assets.versioned("images/hotels/hilton.jpg")">
+            </a> </td>
+
+                <td  style="position: absolute; margin-left: 20px;"> <h4 style="color: blue"> The Hilton Hotel </h4>
+                    <h5 style="color: blue"> The Clayton Hotel </h5>
+                    <p> The Clayton Hotel </p> </td>
+            </tr>
+        </table>
 
     </div>
 
+
+
     <div style="float: right" class="col-md-9">
-        <a href="@routes.HomeController.clayton()">
-            <img style="height:200px; width:300px; border: 10px solid red; margin-left: 700px; margin-bottom: 1em;" src="@routes.Assets.versioned("images/Hilton.jpg")">
-        </a>
+        <table style="border:none;
+            border-collapse:collapse;">
+            <tr> <td>  <a href="@routes.HomeController.temple()">
+                <img style="height:200px; width:300px; border: 10px solid red; margin-left: 350px; margin-bottom: 6em;" src="@routes.Assets.versioned("images/hotels/temple.jpg")">
+            </a> </td>
+
+                <td  style="position: absolute; margin-left: 20px;"> <h4 style="color: blue"> The Temple Bar </h4>
+                    <h5 style="color: blue"> The Clayton Hotel </h5>
+                    <p> The Clayton Hotel </p> </td>
+            </tr>
+        </table>
 
     </div>
 
+
+
     <div style="float: right" class="col-md-9">
-        <a href="@routes.HomeController.clayton()">
-            <img style="height:200px; width:300px; border: 10px solid red; margin-left: 700px; margin-bottom: 1em;" src="@routes.Assets.versioned("images/Hilton.jpg")">
-        </a>
+        <table style="border:none;
+            border-collapse:collapse;">
+            <tr> <td>  <a href="@routes.HomeController.jurys()">
+                <img style="height:200px; width:300px; border: 10px solid red; margin-left: 350px; margin-bottom: 6em;" src="@routes.Assets.versioned("images/hotels/jurys.jpg")">
+            </a> </td>
+
+                <td  style="position: absolute; margin-left: 20px;"> <h4 style="color: blue"> The Jury Inn </h4>
+                    <h5 style="color: blue"> The Clayton Hotel </h5>
+                    <p> The Clayton Hotel </p> </td>
+            </tr>
+        </table>
 
     </div>
 
-    <div style="float: right" class="col-md-9">
-        <a href="@routes.HomeController.clayton()">
-            <img style="height:200px; width:300px; border: 10px solid red; margin-left: 700px; margin-bottom: 1em;" src="@routes.Assets.versioned("images/Hilton.jpg")">
-        </a>
 
+
+    <div style="float: right" class="col-md-9">
+        <table style="border:none;
+            border-collapse:collapse;">
+            <tr> <td>  <a href="@routes.HomeController.ripley()">
+                <img style="height:200px; width:300px; border: 10px solid red; margin-left: 350px; margin-bottom: 1em;" src="@routes.Assets.versioned("images/hotels/Ripley.jpg")">
+            </a> </td>
+
+                <td  style="position: absolute; margin-left: 20px;"> <h4 style="color: blue"> The Ripley Court Hotel </h4>
+                    <h5 style="color: blue"> The Clayton Hotel </h5>
+                    <p> The Clayton Hotel </p> </td>
+            </tr>
+        </table>
+
+    </div>
+    <div style="float: right" class="col-md-9">
+        <table>
+    @for(r <-rooms){
+
+        <td>@r.getId</td>
+    }
+        </table>
     </div>
 
 </div>

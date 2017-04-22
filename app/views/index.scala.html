@@ -16,8 +16,14 @@
         <!-- Call to Action Well -->
     <div class="row">
         <div class="col-lg-12">
-            <div class="well text-center">
-               Sponsored Hotels
+            <div >
+                <form style="width:100%" class="well text-center" action="@routes.HomeController.rooms(0)">
+                    <input type="search" placeholder="search ">
+                    <input type="submit" id="searchsubmit" value="Go!" class="btn-md btn-primary">
+                    <input type="submit" onclick="@routes.AdminController.deleteRoom(43)" value="Go!" class="btn-md btn-primary">
+                </form>
+
+
             </div>
         </div>
             <!-- /.col-lg-12 -->

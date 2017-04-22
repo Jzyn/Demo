@@ -21,11 +21,14 @@ GET     /contact 			controllers.HomeController.contact
 GET     /bookings                   controllers.HomeController.bookings()
 
 
+
 ################
 # Admin Routes #
 ################
 # products accepts a parameter default to 0 (Long)
 GET     /admin/rooms              controllers.AdminController.rooms(hot:Long ?=0L)
+
+GET    /admin/feedback            controllers.AdminController.feedback
 
 # Request to load the add product form
 GET     /admin/addroom                  controllers.AdminController.addRoom
@@ -36,8 +39,12 @@ POST    /admin/addRoomSubmit            controllers.AdminController.addRoomSubmi
 # Delete a product by an id passed as a parameter
 GET    /admin/delRoom/:id               controllers.AdminController.deleteRoom(id: Long)
 
+GET    /admin/delMsg                    controllers.AdminController.deleteMessage()
+
 # Update a product by id
 GET	    /admin/updateRoom/:id        controllers.AdminController.updateRoom(id: Long)
+
+
 
 ################
 # Login routes #
@@ -52,7 +59,15 @@ GET     /logout                      controllers.security.LogonController.logout
 ################
 GET	/clayton				controllers.HomeController.clayton
 
-GET	/hilton			controllers.HomeController.hilton
+GET	/hilton			        controllers.HomeController.hilton
+
+GET /temple                 controllers.HomeController.temple
+
+GET /ripley                 controllers.HomeController.ripley
+
+GET /jurys                  controllers.HomeController.jurys
+
+
 
 
 

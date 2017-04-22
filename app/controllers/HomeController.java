@@ -48,15 +48,10 @@ public class HomeController extends Controller {
     }
 
 public Result whatson(String fil) {
-    List<Hotel> hotelsList;
+    List<Room> roomsList = new ArrayList<Room>();
 
-    if (fil == null) {
-        hotelsList = Hotel.findAll();
-    }
-    else {
-        hotelsList = (List<Hotel>) Hotel.findFilter.ref(fil);
-    }
-    return ok(whatson.render(hotelsList, getUserFromSession()));
+    roomsList = Room.findAll();
+    return ok(whatson.render(roomsList, getUserFromSession()));
 }
 
 public Result contact() {
@@ -72,6 +67,10 @@ public Result clayton() {
     public Result hilton() {
         return ok(hilton.render(getUserFromSession()));
 }
+
+public Result ripley() {return ok(ripley.render(getUserFromSession()));}
+public Result temple() {return ok(temple.render(getUserFromSession()));}
+public Result jurys() {return ok(jurys.render(getUserFromSession()));}
 
 
     public Result rooms(Long hot) {
@@ -102,6 +101,7 @@ public Result clayton() {
  public Result bookings() {
         return ok(bookings.render(getUserFromSession()));
     }
+
 
 }
 

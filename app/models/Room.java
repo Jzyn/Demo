@@ -20,6 +20,7 @@ public class Room extends Model {
     @Constraints.Required
     private String description;
 
+
     @ManyToOne
     private Hotel hotel;
 

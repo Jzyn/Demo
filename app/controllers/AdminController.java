@@ -85,10 +85,12 @@ public class AdminController extends Controller {
 
         if (r.getId() == null) {
             // Save to the database via Ebean (remember Movie extends Model)
+            r.setState("Available");
             r.save();
         }
         // Movie already exists so update
         else if (r.getId() != null) {
+            r.setState("Available");
             r.update();
         }
 
@@ -123,6 +125,12 @@ public class AdminController extends Controller {
         return ok(addRoom.render(roomForm, getUserFromSession()));
     }
 
+    public Result feedback(){
+        List<Feedback> feedbackList = Feedback.findAll();
+
+        return ok(feedback.render(feedbackList,getUserFromSession()));
+    }
+
     // Delete Movie by id
     @Transactional
     public Result deleteRoom(Long id) {
@@ -133,7 +141,15 @@ public class AdminController extends Controller {
         flash("success", "Room has been deleted");
 
         // Redirect to movies page
-        return redirect(routes.AdminController.rooms(0));
+        return redirect(routes.HomeController.index());
+    }
+
+
+
+    public Result deleteMessage() {
+        flash("Hooray");
+
+        return redirect(routes.AdminController.feedback());
     }
 
 }
