@@ -16,6 +16,9 @@ public class Room extends Model {
     @Id
     private Long id;
 
+    @Constraints.Required
+    private int number;
+
     // Other fields marked as being required (for validation purposes)
     @Constraints.Required
     private String description;
@@ -27,25 +30,33 @@ public class Room extends Model {
     @Constraints.Required
     private double price;
 
-    public String state;
+    private int people;
+
+    private String state;
+
+
+
+
 
     // Default constructor
     public  Room() {
     }
 
     // Constructor to initialise object
-    public Room(Long id, String description, Hotel hotel, double price, String state) {
+    public Room(Long id, int number, String description, Hotel hotel, double price, String state, int people) {
         this.id = id;
+        this.number = number;
         this.description = description;
         this.hotel = hotel;
         this.price = price;
         this.state = state;
+        this.people = people;
     }
 
     //Generic query helper for entity Computer with id Long
     public static Finder<Long,Room> find = new Finder<Long,Room>(Room.class);
 
-    // Find all Movies in the database
+
     public static List<Room> findAll() {
         return Room.find.all();
 }
@@ -71,6 +82,14 @@ public static Map<String,String> options() {
         this.id = id;
     }
 
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -91,9 +110,18 @@ public static Map<String,String> options() {
         return price;
     }
 
+    public int getPeople() {
+        return people;
+    }
+
+    public void setPeople(int people) {
+        this.people = people;
+    }
+
     public void setPrice(double price) {
         this.price = price;
     }
+
 
     public Hotel getHotel() {
         return hotel;

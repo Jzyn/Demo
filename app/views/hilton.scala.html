@@ -15,10 +15,21 @@
             <br>
             <br>
             <div class="tophalf">
-
-                <p>This hotel is conveniently situated close to the Central Business Park and Leopardstown racecourse and serviced by the Luas light rail system and Aircoach.
-                    The bedrooms are spacious and well appointed. Contemporary in style, the open-plan public areas include a spacious lounge bar with snack food available throughout the day
-                    and lunch and dinner is served in the Restaurant. There is a gym and a choice of conference rooms including the Power Suite. Underground parking is available.</p>
+               <p> With views over the River Liffey, Hilton Garden Inn Dublin Custom House sits next to 3Arena, EPIC Ireland museum and Bord Gais Theatre. In the newly developed Dockland area, rooms all feature power showers and flat-screen TVs.
+               </p> <br>
+               <p> Hilton Garden Inn Dublin Custom House has contemporary, spacious rooms with flat-screen TVs with Freeview, spa toiletries, and spacious bathrooms. There is a workspace area and tea and coffee-making facilities. Hilton Garden Inn Dublin Custom House also provides several wheelchair friendly rooms.
+            </p> <br>
+                <p> Busaras and Connolly Station are both just a 2-minute walk from the hotel and there is a public car park adjacent to the hotel. There is also a tram stop to the rear of the hotel with a bus sightseeing tour stop right outside the door. Dublin city centre is just a 15-minute walk offering a many shopping, dining and social experiences.
+                </p>  <br>
+               <p> The Hilton’s restaurant has a wide selection of snacks and meals on offer. Speciality coffees are served at Il Barista, which also serves snacks and fresh pastries.
+               </p>  <br>
+               <p> The stylish bar serves excellent cuisine in light and airy surroundings. It also has a fine selection of spirits and wines to choose from.
+               </p>  <br>
+              <p>  This is our guests' favourite part of Dublin, according to independent reviews.
+              </p> <br>
+              <p>  Couples particularly like the location — they rated it 9 for a two-person trip.
+              </p>  <br>
+                We speak your language!
             </div>
 
 
@@ -31,6 +42,19 @@
 
         </div>
 
+        <div style="padding-bottom: 20px; padding-top:30px; padding-left: 100px;" class="col-md-3">
+            <div class="w3-content w3-display-container">
+                <img class="mySlides" src="@routes.Assets.versioned("images/slide/1.jpg")" style="width:130%; height:130px;">
+                <img class="mySlides" src="@routes.Assets.versioned("images/slide/2.jpg")" style="width:130%; height:130px;">
+                <img class="mySlides" src="@routes.Assets.versioned("images/slide/3.jpg")" style="width:130%; height:130px;">
+                <img class="mySlides" src="@routes.Assets.versioned("images/slide/4.jpg")" style="width:130%; height:130px;">
+
+                <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+                <button style="left:108%" class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+
+            </div>
+        </div>
+
         <div class="col-md-3">
             <div class="row">
 
@@ -39,5 +63,24 @@
             </div>
 
         </div>
+        <script>
+                var slideIndex = 1;
+                showDivs(slideIndex);
+
+                function plusDivs(n) {
+                    showDivs(slideIndex += n);
+                }
+
+                function showDivs(n) {
+                    var i;
+                    var x = document.getElementsByClassName("mySlides");
+                    if (n > x.length) {slideIndex = 1}
+                    if (n < 1) {slideIndex = x.length}
+                    for (i = 0; i < x.length; i++) {
+                        x[i].style.display = "none";
+                    }
+                    x[slideIndex-1].style.display = "block";
+                }
+        </script>
     </div>
 }

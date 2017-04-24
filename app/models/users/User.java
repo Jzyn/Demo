@@ -1,11 +1,14 @@
 package models.users;
 
-import java.util.*;
 import javax.persistence.*;
 
 import com.avaje.ebean.Model;
 import play.data.format.*;
 import play.data.validation.*;
+import java.util.*;
+import models.shopping.*;
+
+import models.shopping.*;
 
 @Entity
 public class User extends Model {
@@ -15,11 +18,16 @@ public class User extends Model {
     @Id
     private String email;
 
-    @Constraints.Required
     private String role;
 
     @Constraints.Required
     private String name;
+
+    @OneToOne(mappedBy="user", cascade = CascadeType.ALL)
+    private Basket basket;
+
+    @OneToMany(mappedBy="user", cascade = CascadeType.ALL)
+    private List<ShopOrder> orders;
 
     @Constraints.Required
     private String password;
@@ -48,6 +56,7 @@ public class User extends Model {
         else
             return find.byId(id);
     }
+
 
 
     public String getEmail() {
@@ -81,6 +90,22 @@ public class User extends Model {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Basket getBasket() {
+        return basket;
+    }
+
+    public void setBasket(Basket basket) {
+        this.basket = basket;
+    }
+
+    public List<ShopOrder> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<ShopOrder> orders) {
+        this.orders = orders;
     }
 
 

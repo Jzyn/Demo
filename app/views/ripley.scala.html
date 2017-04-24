@@ -16,9 +16,23 @@
             <br>
             <div class="tophalf">
 
-                <p>This hotel is conveniently situated close to the Central Business Park and Leopardstown racecourse and serviced by the Luas light rail system and Aircoach.
-                    The bedrooms are spacious and well appointed. Contemporary in style, the open-plan public areas include a spacious lounge bar with snack food available throughout the day
-                    and lunch and dinner is served in the Restaurant. There is a gym and a choice of conference rooms including the Power Suite. Underground parking is available.</p>
+                <p>Less than 5 minutes' walk from O'Connell Street, The Ripley Court Hotel is close to Temple Bar and Trinity College. This central Dublin hotel offers spacious, tastefully furnished rooms with flat-screen TVs, free WiFi and power showers.
+                    </p><br>
+            <p>    Traditional, full Irish breakfasts, continental breakfasts are served daily in The Ripley Court's restaurant from 7:00 to 10:00, and carvery lunches are also available. Homemade soups, coffee and pastries are also available in the Ripley Court Deli Bar and The Ulysses Bar offers a selection of beers, wine, and cocktails.
+                </p><br>
+                <p>  The 747 Airlink airport shuttle which services Busaras bus station stops right outside the hotel on route from the Airport. Return shuttles to the airport depart from Busaras bus station which is just a minute walk away from the hotel.
+                </p><br>
+            <p>  The nearby O2 Arena can be reached by LUAS (light rail system) from the Hotel and Dublin's Convention Centre is just a 10 minute walk and can also be accessed by the LUAS tram system. Trinity College and Croke Park are within a 10-minute walk.
+            </p><br>
+                <p>   Rooms at Ripley Court hotel all include en suite bathrooms with baths and power showers. Rooms also feature a refreshment tray with tea and coffee-making facilities, cable TV and an in-room safe.
+                </p><br>
+            <p>   A 24-hour reception and luggage facilities are available to facilitate early arrivals and departures.
+            </p><br>
+                <p>    This is our guests' favourite part of Dublin, according to independent reviews.
+                </p><br>
+            <p>    Couples particularly like the location — they rated it 8 for a two-person trip.
+            </p><br>
+                <p>   We speak your language!</p>
             </div>
 
 
@@ -30,6 +44,18 @@
             <img style="height:254px; width:394px; border: 4px solid black;" src="@routes.Assets.versioned("images/hotels/Ripley.jpg")" alt="Ripley Hotel">
 
         </div>
+        <div style="padding-bottom: 20px; padding-top:30px; padding-left: 100px;" class="col-md-3">
+            <div class="w3-content w3-display-container">
+                <img class="mySlides" src="@routes.Assets.versioned("images/slide/1.jpg")" style="width:130%; height:130px;">
+                <img class="mySlides" src="@routes.Assets.versioned("images/slide/2.jpg")" style="width:130%; height:130px;">
+                <img class="mySlides" src="@routes.Assets.versioned("images/slide/3.jpg")" style="width:130%; height:130px;">
+                <img class="mySlides" src="@routes.Assets.versioned("images/slide/4.jpg")" style="width:130%; height:130px;">
+
+                <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+                <button style="left:108%" class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+
+            </div>
+        </div>
 
         <div class="col-md-3">
             <div class="row">
@@ -39,5 +65,24 @@
             </div>
 
         </div>
+        <script>
+                var slideIndex = 1;
+                showDivs(slideIndex);
+
+                function plusDivs(n) {
+                    showDivs(slideIndex += n);
+                }
+
+                function showDivs(n) {
+                    var i;
+                    var x = document.getElementsByClassName("mySlides");
+                    if (n > x.length) {slideIndex = 1}
+                    if (n < 1) {slideIndex = x.length}
+                    for (i = 0; i < x.length; i++) {
+                        x[i].style.display = "none";
+                    }
+                    x[slideIndex-1].style.display = "block";
+                }
+        </script>
     </div>
 }

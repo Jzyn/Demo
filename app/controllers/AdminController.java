@@ -1,7 +1,8 @@
 package controllers;
 
-import controllers.security.AuthAdmin;
+import controllers.security.checkIfAdmin;
 import controllers.security.Secured;
+import play.data.*;
 import play.data.Form;
 import play.data.FormFactory;
 import play.db.ebean.Transactional;
@@ -16,9 +17,14 @@ import models.users.User;
 
 // Require Login
 @Security.Authenticated(Secured.class)
+
 // Authorise user (check if admin)
-@With(AuthAdmin.class)
+@With(checkIfAdmin.class)
+
 public class AdminController extends Controller {
+    public Result index() {
+        return ok(index.render(getUserFromSession()));
+    }
 
     // Declare a private FormFactory instance
     private FormFactory formFactory;
@@ -37,58 +43,53 @@ public class AdminController extends Controller {
 
     public Result rooms(Long hot) {
 
-        // Get list of all genres in ascending order
+
         List<Hotel> hotelsList = Hotel.findAll();
         List<Room> roomsList = new ArrayList<Room>();
 
         if (hot == 0) {
-            // Get list of all genres in ascending order
             roomsList = Room.findAll();
         }
         else {
-            // Get movies for selected genre
-            // Find genre first then extract movies for that cat.
+            // Get Rooms for select hotels
             roomsList = Hotel.find.ref(hot).getRooms();
         }
 
-        return ok(rooms.render(roomsList, hotelsList, getUserFromSession()));
+        return ok(adminRooms.render(roomsList, hotelsList, getUserFromSession()));
     }
-
-    // Render and return  the add new movie page
-    // The page will load and display an empty add movie form
 
     public Result addRoom() {
 
-        // Create a form by wrapping the Movie class
-        // in a FormFactory form instance
+        // Create a form by wrapping the Room class
         Form<Room> addRoomForm = formFactory.form(Room.class);
 
-        // Render the Add Movie View, passing the form object
+        // Render the Add Room View, passing the form object
         return ok(addRoom.render(addRoomForm, getUserFromSession()));
     }
 
     @Transactional
     public Result addRoomSubmit() {
 
-        // Create a movie form object (to hold submitted data)
+        // Create a Room form object (to hold submitted data)
         // 'Bind' the object to the submitted form (this copies the filled form)
         Form<Room> newRoomForm = formFactory.form(Room.class).bindFromRequest();
 
-        // Check for errors (based on Movie class annotations)
+        // Check for errors (based on class annotations)
         if(newRoomForm.hasErrors()) {
             // Display the form again
             return badRequest(addRoom.render(newRoomForm, getUserFromSession()));
         }
 
-        // Extract the movie from the form object
+        // Extract the Room from the form object
         Room r = newRoomForm.get();
 
         if (r.getId() == null) {
-            // Save to the database via Ebean (remember Movie extends Model)
+            // Save to the database via Ebean
             r.setState("Available");
             r.save();
         }
-        // Movie already exists so update
+
+        // already exists so update
         else if (r.getId() != null) {
             r.setState("Available");
             r.update();
@@ -98,11 +99,10 @@ public class AdminController extends Controller {
         // for display in return view
         flash("success", "Room " + r.getId() + " has been created/ updated");
 
-        // Redirect to the admin home
+        // Redirect back to the Admin rooms view
         return redirect(routes.AdminController.rooms(0));
     }
 
-    // Update a pmovie by ID
     // called when edit button is pressed
     @Transactional
     public Result updateRoom(Long id) {
@@ -111,17 +111,16 @@ public class AdminController extends Controller {
         Form<Room> roomForm;
 
         try {
-            // Find the movie by id
             r = Room.find.byId(id);
 
-            // Create a form based on the Movie class and fill using m
+            // Create a form based on the Room class and fill using r
             roomForm = formFactory.form(Room.class).fill(r);
 
             } catch (Exception ex) {
                 // Display an error message or page
                 return badRequest("error");
         }
-        // Render the updateMovie view - pass form as parameter
+
         return ok(addRoom.render(roomForm, getUserFromSession()));
     }
 
@@ -131,17 +130,15 @@ public class AdminController extends Controller {
         return ok(feedback.render(feedbackList,getUserFromSession()));
     }
 
-    // Delete Movie by id
+    // Delete Room by id
     @Transactional
     public Result deleteRoom(Long id) {
 
-        // find movie by id and call delete method
         Room.find.ref(id).delete();
         // Add message to flash session
         flash("success", "Room has been deleted");
 
-        // Redirect to movies page
-        return redirect(routes.HomeController.index());
+        return redirect(routes.AdminController.rooms(0));
     }
 
 

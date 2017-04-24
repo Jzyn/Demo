@@ -12,26 +12,32 @@
 
         <!-- Build the form, adding an input for each field -->
         <!-- Note the label parameter -->
-        @inputText(addRoomForm("description"), '_label -> "Name",'class -> "form-control")
+
+        @inputText(addRoomForm("number"), '_label -> "Features",'class -> "form-control")
+
+        @inputText(addRoomForm("description"), '_label -> "Features",'class -> "form-control")
 
         @select(
             addRoomForm("hotel.id"),
 
             options(Hotel.options),
-            '_label -> "Hotel", '_default -> "-- Choose the hotel --",
+            '_label -> "Hotel",
             '_showConstraints -> false, 'class -> "form-control"
         )
         @inputText(addRoomForm("price"), '_label -> "Price",'class -> "form-control")
 
-        <!-- Hidden ID field - required for movie updates -->
-        @inputText(addRoomForm("id"), '_label -> "", 'hidden -> "hidden")
 
-        <!-- Add a submit button -->
     <div class="actions">
         <input type="submit" value="Save" class="btn btn-primary">
         <a href="@routes.AdminController.rooms()"><button class="btn btn-warning">Cancel</button>
         </a>
     </div>
+        <!-- Hidden ID field - required for updates -->
+        @inputText(addRoomForm("id"), '_label -> "", 'hidden -> "hidden")
+        @inputText(addRoomForm("people"), '_label -> "", 'hidden -> "hidden")
+
+
+
 } <!-- End Form definition -->
 
     } <!-- End of page content -->

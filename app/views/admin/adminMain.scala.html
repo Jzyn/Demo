@@ -54,9 +54,9 @@
 
 
                     <ul class="nav navbar-nav" style="padding-top: 20px">
-                        <li @if(title == "Browse"){class="active"}><a href="@routes.HomeController.whatson("")">Browse</a> </li>
-                        <li @if(title == "movies"){class="active"}><a href="@routes.AdminController.rooms()">Booking</a> </li>
-                        <li @if(title == "Contact"){class="active"}> <a href="@routes.HomeController.contact()">Contact</a></li>
+                        <li @if(title == "Browse"){class="active"}><a href="@routes.HomeController.browse()">Browse</a> </li>
+                        <li @if(title == "Booking"){class="active"}><a href="@routes.AdminController.rooms()">Booking</a> </li>
+                        <li @if(title == "Contact"){class="active"}><a href="@routes.HomeController.contact()">Contact</a></li>
                     </ul>
 
 
@@ -70,7 +70,6 @@
                                 <!-- And this Line -->               <a href="login">Log in  <span class="glyphicon glyphicon-user"></span></a>
 
                     }
-                        <li @if(title == "My Bookings"){class="active"}><a href="@routes.HomeController.bookings()">My Bookings</a> <li>
 
                     </li>
                     </ul>

@@ -12,12 +12,14 @@ public class AuthAdmin extends Action.Simple {
        String id = ctx.session().get("email");
        if(id != null){
            User u = User.getUserById(id);
-       if("admin".equals(u.getRole())){
-           return delegate.call(ctx);
-       }
+           if("customer".equals(u.getRole())){
+               return delegate.call(ctx);
+           }
    }
-   ctx.flash().put("error", "Admin Login Required");
+   ctx.flash().put("error", "Customer Login Required");
     return CompletableFuture.completedFuture(redirect(routes.LogonController.login()));
            }
+
+
 
 }

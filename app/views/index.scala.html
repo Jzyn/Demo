@@ -1,63 +1,30 @@
 @(user: models.users.User)
 @main("Home", user){
-    <div class="row">
-        <div class="col-md-8">
+        <div style="padding: 50px;">
+            <form style="width:100%"  action="@routes.HomeController.rooms(0)">
+                <input type="search" placeholder="search ">
+                <input style="background-color: orange; border: 3px solid orange" type="submit" id="searchsubmit" value="Go!" class="btn-md btn-primary">
+            </form>
+            <img style="margin-left: 20px;" src="@routes.Assets.versioned("images/Crown.png")" alt="sd" width=175 height=150>
 
-        </div>
-            <!-- /.col-md-8 -->
-        <div class="col-md-4">
+            <p style="margin-left: 18px;">Any questions? Ask us here </p>
+            <p  style="margin-left: 100px;">&darr; &darr; &darr;</p>
 
-        </div>
-            <!-- /.col-md-4 -->
-    </div>
-        <!-- /.row -->
+            <a  style="margin-left: 62px;" class="btn btn-default" href="@routes.HomeController.contact()">Contact Us</a>
 
+            <div style="float: right;padding-left:70%" >
+                <img src="@routes.Assets.versioned("images/spon1.png")" alt="sd" width=315 height=215>
+                <a style="margin-left: 6em; margin-bottom: 10px;margin-top: 10px;" class="btn btn-default" href="@routes.HomeController.clayton()">The Clayton Hotel</a> <br>
 
-        <!-- Call to Action Well -->
-    <div class="row">
-        <div class="col-lg-12">
-            <div >
-                <form style="width:100%" class="well text-center" action="@routes.HomeController.rooms(0)">
-                    <input type="search" placeholder="search ">
-                    <input type="submit" id="searchsubmit" value="Go!" class="btn-md btn-primary">
-                    <input type="submit" onclick="@routes.AdminController.deleteRoom(43)" value="Go!" class="btn-md btn-primary">
-                </form>
+                                                        <br>
 
-
+                <img src="@routes.Assets.versioned("images/spon2.png")" alt="sd" width=315 height=215>
+                <a style="margin-left: 5em; margin-bottom: 10px;margin-top: 10px;" class="btn btn-default" href="@routes.HomeController.hilton()">The Hilton Garden Inn</a>
             </div>
         </div>
-            <!-- /.col-lg-12 -->
-    </div>
-        <!-- /.row -->
 
-        <!-- Content Row -->
-    <div  class="well">
-        <div class="row">
 
-            <div style="margin-left: 12.5em;" class="col-md-4">
-                <img src="@routes.Assets.versioned("images/Clayton.jpg")" alt="sd" width=315 height=215>
-                <p style="margin-left: 6em;">Some Bonkers Hotel</p>
-                <a style="margin-left: 7em;" class="btn btn-default" href="@routes.HomeController.clayton()">Check It Out</a>
+            <div style="margin-left: 32%;" class="col-md-4">
+
             </div>
-                <!-- /.col-md-4 -->
-            <div style="margin-right: 3em;" class="col-md-4">
-                <img src="@routes.Assets.versioned("images/Hilton.jpg")" alt="sd" width=315 height=215>
-
-                <p style="margin-left: 8em;" >Another Hotel</p>
-                <a style="margin-left: 7.6em;" class="btn btn-default" href="@routes.HomeController.hilton()">Check It Out</a>
-            </div>
-                <!-- /.col-md-4 -->
-            <div style="margin-left: 32%;" class="col-md-12">
-                <img src="@routes.Assets.versioned("images/Crown.png")" alt="sd" width=315 height=215>
-
-                <p style="margin-left: 5em;">Any questions? Ask us here </p>
-                <p style="margin-left: 11.3em;">&darr; </p>
-
-                <a style="margin-left:8em;" class="btn btn-default" href="@routes.HomeController.contact()">Contact Us</a>
-            </div>
-                <!-- /.col-md-4 -->
-        </div>
-    </div>
-        <!-- /.row -->
-    <br>
 }

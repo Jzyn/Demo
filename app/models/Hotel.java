@@ -40,7 +40,6 @@ public class Hotel extends Model {
     public static Finder<Long,Hotel> find = new Finder<Long,Hotel>(Hotel.class);
     public static Finder<String,Hotel> findFilter = new Finder<String,Hotel>(Hotel.class);
 
-    //Find all Movies in the database in ascending order by name
     public static List<Hotel> findAll() {
         return Hotel.find.where().orderBy("name asc").findList();
     }
@@ -49,7 +48,7 @@ public class Hotel extends Model {
     public static Map<String,String> options() {
         LinkedHashMap<String,String> options = new LinkedHashMap<>();
 
-        // Get all genres from the DB and add to the options Hash map
+        // Get all hotels from the DB and add to the options Hash map
         for(Hotel h: Hotel.findAll()) {
             options.put(h.getId().toString(), h.getName());
         }

@@ -7,15 +7,10 @@
         <div class="col-sm-2">
             <h4>Hotels</h4>
             <div class="list-group">
-                    <!-- A link to display all movies -->
-                <a href="@routes.AdminController.rooms(0)" class="list-group-item">All hotels</a>
+                <a href="@routes.AdminController.rooms(0)"></a>
 
-                    <!-- Start of For loop - For each g in genres add a list item -->
-                    <!-- Also show the number of movies in each genre -->
                 @for(h <- hotels) {
-                    <a href="@routes.AdminController.rooms(h.getId)" class="list-group-item">@h.getName
-                    <span class="badge">@h.getRooms.size()</span>
-                    </a>
+                    <a href="@routes.AdminController.rooms(h.getId)" class="list-group-item">@h.getName</a>
                 }
             </div>
         </div>
@@ -38,8 +33,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                        <!-- Movie row(s) -->
-                        <!-- Start of For loop - For each m in movies add a row -->
                     @for(r <- rooms) {
                         <tr>
                             <td>@r.getId</td>
@@ -48,12 +41,12 @@
                             <td>&euro; @("%.2f".format(r.getPrice))</td>
                             <td>@r.getState</td>
 
-                                <!-- Edit movie button -->
+                                <!-- Edit button -->
                             <td>
                                 <a href="@routes.AdminController.updateRoom(r.getId)" class="btn-xs btn-danger">
                                     <span class="glyphicon glyphicon-pencil"></span></a>
                             </td>
-                                <!-- Delete movie button -->
+                                <!-- Delete button -->
                             <td>
                                 <a href="@routes.AdminController.deleteRoom(r.getId)" class="btn-xs btn-danger"
                                 onclick="return confirmDel();">
@@ -70,7 +63,9 @@
                 </a>
             </p>
         </div>
+
     </div>
+
 
     <script>
             // JavaScript function returns true if user clicks yes, otherwise, false

@@ -10,13 +10,12 @@ import play.data.validation.*;
 public class Feedback extends Model {
     // Properties
 
-    private Long id;
-
     @Constraints.Required
     private String name;
 
     @Constraints.Required
     private String email;
+
 
     private String subject;
 
@@ -28,9 +27,9 @@ public class Feedback extends Model {
     }
 
     // Constructor to initialise object
-    public Feedback(Long id, String name, String email, String subject, String message) {
-        this.id = id;
+    public Feedback(String name, String email, String subject, String message) {
         this.name = name;
+        this.email = email;
         this.subject = subject;
         this.message = message;
 
@@ -39,18 +38,8 @@ public class Feedback extends Model {
     //Generic query helper for entity Computer with id Long
     public static Finder<Long,Feedback> find = new Finder<Long,Feedback>(Feedback.class);
 
-    // Find all Movies in the database
     public static List<Feedback> findAll() {
         return Feedback.find.all();
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-
-        this.id = id;
     }
 
     public String getName() {

@@ -16,9 +16,23 @@
             <br>
             <div class="tophalf">
 
-                <p>This hotel is conveniently situated close to the Central Business Park and Leopardstown racecourse and serviced by the Luas light rail system and Aircoach.
-                    The bedrooms are spacious and well appointed. Contemporary in style, the open-plan public areas include a spacious lounge bar with snack food available throughout the day
-                    and lunch and dinner is served in the Restaurant. There is a gym and a choice of conference rooms including the Power Suite. Underground parking is available.</p>
+                <p>Located in Dublin, the chic Temple Bar Inn offers free WiFi access throughout and a 24-hour front desk. The popular O'Connell Street and Trinity College are both a 3-minute walk away.
+                </p> <br>
+                  <p>  Each modern room includes a flat-screen TV with cable channels, a safe, mini-fridge and tea and coffee making facilities. Featuring a shower, the private bathroom also comes with free toiletries. Guests 16 years and older have complimentary access to the gym, swimming pool, sauna and steam room at Crunch Fitness, a 30 second walk from the property.
+
+                  </p>   <br>At Temple Bar Inn you will find a terrace and a shared lounge with free tea and coffee, as well as a tour desk and luggage storage. Home to numerous restaurants, pubs, and shops, Grafton Street is just 5 minutes' walk from the Temple Bar Inn. Staff can provide information on nearby tours and attractions.
+
+                  <p>  Temple Bar Inn is just 200 m from Dublin Tourism Centre and 300 m from Dublin Castle. Nearby attractions include The Guiness Storehouse.
+
+                  </p>  <br> Dublin Airport is 9 km away.
+
+                  <p>  This is our guests' favourite part of Dublin, according to independent reviews.
+
+                  </p> <br> This property also has one of the best-rated locations in Dublin! Guests are happier about it compared to other properties in the area.
+
+                   <p> Couples particularly like the location — they rated it 9 for a two-person trip.
+                   </p><br>
+                   <p> We speak your language!</p> <br>
             </div>
 
 
@@ -30,6 +44,18 @@
             <img style="height:254px; width:394px; border: 4px solid black;" src="@routes.Assets.versioned("images/hotels/temple.jpg")" alt="Temple Bar Hotel">
 
         </div>
+        <div style="padding-bottom: 20px; padding-top:30px; padding-left: 100px;" class="col-md-3">
+            <div class="w3-content w3-display-container">
+                <img class="mySlides" src="@routes.Assets.versioned("images/slide/1.jpg")" style="width:130%; height:130px;">
+                <img class="mySlides" src="@routes.Assets.versioned("images/slide/2.jpg")" style="width:130%; height:130px;">
+                <img class="mySlides" src="@routes.Assets.versioned("images/slide/3.jpg")" style="width:130%; height:130px;">
+                <img class="mySlides" src="@routes.Assets.versioned("images/slide/4.jpg")" style="width:130%; height:130px;">
+
+                <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+                <button style="left:108%" class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+
+            </div>
+        </div>
 
         <div class="col-md-3">
             <div class="row">
@@ -39,5 +65,24 @@
             </div>
 
         </div>
+        <script>
+                var slideIndex = 1;
+                showDivs(slideIndex);
+
+                function plusDivs(n) {
+                    showDivs(slideIndex += n);
+                }
+
+                function showDivs(n) {
+                    var i;
+                    var x = document.getElementsByClassName("mySlides");
+                    if (n > x.length) {slideIndex = 1}
+                    if (n < 1) {slideIndex = x.length}
+                    for (i = 0; i < x.length; i++) {
+                        x[i].style.display = "none";
+                    }
+                    x[slideIndex-1].style.display = "block";
+                }
+        </script>
     </div>
 }

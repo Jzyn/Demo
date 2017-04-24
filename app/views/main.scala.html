@@ -12,6 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
         <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/bootstrap.min.css")">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> <!-- For slideshow -->
 	 <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/small-business.css")">
 	 <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/shop-homepage.css")">
      <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/form-login.css")">
@@ -54,8 +55,8 @@
 
 
                 <ul class="nav navbar-nav" style="padding-top: 20px">
-                    <li @if(title == "Browse"){class="active"}><a href="@routes.HomeController.whatson("")">Browse</a> </li>
-                    <li @if(title == "movies"){class="active"}><a href="@routes.HomeController.rooms()">Booking</a> </li>
+                    <li @if(title == "Browse"){class="active"}><a href="@routes.HomeController.browse()">Browse</a> </li>
+                    <li @if(title == "Booking"){class="active"}><a href="@routes.HomeController.rooms()">Booking</a> </li>
 					<li @if(title == "Contact"){class="active"}> <a href="@routes.HomeController.contact()">Contact</a></li>
                 </ul>
 
@@ -67,9 +68,8 @@
                         @if(user != null){
              <!-- This Line -->               <a href="logout">Logout @user.getName</a>
                         }else{
-             <!-- And this Line -->               <a href="login">Log in  <span class="glyphicon glyphicon-user"></span></a>
+             <!-- And this Line -->               <a href="signup">Sign Up/Login  <span class="glyphicon glyphicon-user"></span></a>
 
-						<li @if(title == "My Bookings"){class="active"}><a href="@routes.HomeController.bookings()">My Bookings</a> <li>
                         }
                     </li>
 				</ul>

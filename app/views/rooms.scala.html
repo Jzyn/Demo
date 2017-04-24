@@ -7,15 +7,13 @@
         <div class="col-sm-2">
             <h4>Hotels</h4>
             <div class="list-group">
-                    <!-- A link to display all movies -->
-                <a href="@routes.HomeController.rooms(0)" class="list-group-item">All hotels</a>
 
-                    <!-- Start of For loop - For each g in genres add a list item -->
-                    <!-- Also show the number of movies in each genre -->
+
+                <a href="@routes.HomeController.rooms(0)"  class="list-group-item">All hotels</a>
+
                 @for(h <- hotels) {
-                    <a href="@routes.HomeController.rooms(h.getId)" class="list-group-item">@h.getName
-                    <span class="badge">@h.getRooms.size()</span>
-                    </a>
+
+                    <a href="@routes.HomeController.rooms(h.getId)" class="list-group-item">@h.getName</a>
                 }
             </div>
         </div>
@@ -30,26 +28,25 @@
                 <thead>
                         <!-- The header row-->
                     <tr>
-                        <th>ID</th>
-                        <th>Description</th>
+                        <th>Room number</th>
                         <th>Hotel</th>
+                        <th>Description</th>
                         <th>Price</th>
                         <th>State</th>
                     </tr>
                 </thead>
                 <tbody>
-                        <!-- Movie row(s) -->
-                        <!-- Start of For loop - For each m in movies add a row -->
+
                     @for(r <- rooms) {
                         <tr>
-                            <td>@r.getId</td>
-                            <td>@r.getDescription</td>
+                            <td>@r.getNumber</td>
                             <td>@r.getHotel.getName</td>
+                            <td>@r.getDescription</td>
                             <td>&euro; @("%.2f".format(r.getPrice))</td>
                             <td>@r.getState</td>
 
                             <td>
-                                <a href="@routes.HomeController.bookRoom()" class="btn-xs btn-success">
+                                <a href="@routes.OrderController.addToBasket(r.getId())" class="btn-xs btn-success">
                                     <span class="glyphicon glyphicon-pencil"></span></a>
 
                             </td>

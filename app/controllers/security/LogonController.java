@@ -3,6 +3,7 @@ package controllers.security;
 import play.api.Environment;
 import play.mvc.*;
 import play.data.*;
+import controllers.security.*;
 
 import javax.inject.Inject;
 
@@ -49,6 +50,7 @@ public class LogonController extends Controller {
             return redirect(controllers.routes.HomeController.index());
         }
     }
+
 
 
     public Result logout() {

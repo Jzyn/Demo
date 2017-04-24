@@ -16,9 +16,23 @@
             <br>
             <div class="tophalf">
 
-                <p>This hotel is conveniently situated close to the Central Business Park and Leopardstown racecourse and serviced by the Luas light rail system and Aircoach.
-                    The bedrooms are spacious and well appointed. Contemporary in style, the open-plan public areas include a spacious lounge bar with snack food available throughout the day
-                    and lunch and dinner is served in the Restaurant. There is a gym and a choice of conference rooms including the Power Suite. Underground parking is available.</p>
+                <p>located on Dublin’s Parnell Street, this Jurys Inn is just around the corner from O’Connell Street. Jurys offers en suite bedrooms, a restaurant and an Il Barista Coffee Bar.
+                </p> <br>
+              <p>      Jurys Inn Parnell Street offers contemporary rooms with TVs with Freeview, spa toiletries, and private bathrooms. There is a workspace area and tea and coffee-making facilities.
+                </p><br>
+                <p>    Jurys has a 24-hour reception and is just a 5-minute walk from the Temple Bar district. Dublin Castle, Grafton Street, and Trinity College are all under a 10-minute walk away.
+            </p> <br>
+                <p>         Breakfast is served in the restaurant which also offers an evening menu with Irish and international cuisine. The Inntro Bar serves light lunches whilst specialty coffees are available at Il Barista.
+                </p><br>
+                <p>   The bus stop on O’Connell Street services Dublin Airport, which is just 8 km way. Heuston Train Station is 2.4 km from Jurys.
+                </p><br>
+            <p>         This is our guests' favourite part of Dublin, according to independent reviews.
+                </p><br>
+                <p>  Couples particularly like the location — they rated it 9 for a two-person trip.
+                </p><br>
+                <p>  This property is also rated for the best value in Dublin! Guests are getting more for their money when compared to other properties in this city.
+                </p> <br>
+                <p>  We speak your language!</p>
             </div>
 
 
@@ -30,6 +44,18 @@
             <img style="height:254px; width:394px; border: 4px solid black;" src="@routes.Assets.versioned("images/hotels/Jurys.jpg")" alt="Jurys Inn">
 
         </div>
+        <div style="padding-bottom: 20px; padding-top:30px; padding-left: 100px;" class="col-md-3">
+            <div class="w3-content w3-display-container">
+                <img class="mySlides" src="@routes.Assets.versioned("images/slide/1.jpg")" style="width:130%; height:130px;">
+                <img class="mySlides" src="@routes.Assets.versioned("images/slide/2.jpg")" style="width:130%; height:130px;">
+                <img class="mySlides" src="@routes.Assets.versioned("images/slide/3.jpg")" style="width:130%; height:130px;">
+                <img class="mySlides" src="@routes.Assets.versioned("images/slide/4.jpg")" style="width:130%; height:130px;">
+
+                <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+                <button style="left:108%" class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+
+            </div>
+        </div>
 
         <div class="col-md-3">
             <div class="row">
@@ -39,5 +65,24 @@
             </div>
 
         </div>
+        <script>
+                var slideIndex = 1;
+                showDivs(slideIndex);
+
+                function plusDivs(n) {
+                    showDivs(slideIndex += n);
+                }
+
+                function showDivs(n) {
+                    var i;
+                    var x = document.getElementsByClassName("mySlides");
+                    if (n > x.length) {slideIndex = 1}
+                    if (n < 1) {slideIndex = x.length}
+                    for (i = 0; i < x.length; i++) {
+                        x[i].style.display = "none";
+                    }
+                    x[slideIndex-1].style.display = "block";
+                }
+        </script>
     </div>
 }

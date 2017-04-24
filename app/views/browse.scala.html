@@ -1,0 +1,134 @@
+@( rooms: List[models.Room],user: models.users.User)
+@main("Browse", user){
+<div class="row">
+
+    <div style="float: left" class="col-md-3">
+
+        <div class="list-group">
+            <div class="list-group-item">
+                <h5 style="text-align: center; font-size: 2em; font-family: sans-serif;"><strong>Filter by <span class="glyphicon glyphicon-hand-down"></strong></span>
+                </h5>
+            </div>
+                    <!-- Buttons that look like radio buttons -->
+            <form style="background-color:lightblue; width:265px;">
+                <button style="
+                    height: 15px;
+                    width: 15px;
+                    border-radius: 50%;
+                    border: 1px solid silver;" onclick="location.href='@routes.HomeController.browse()'" type="button"></button> View All<br>
+
+                <button style="
+                    height: 15px;
+                    width: 15px;
+                    border-radius: 50%;
+                    border: 1px solid silver;" onclick="location.href='@routes.HomeController.filtersearchff()'" type="button"></button> Family Friendly<br>
+
+                <button style="
+                    height: 15px;
+                    width: 15px;
+                    border-radius: 50%;
+                    border: 1px solid silver;" onclick="location.href='@routes.HomeController.filtersearchmls()'" type="button"></button> Included Meals<br>
+
+                <button style="
+                    height: 15px;
+                    width: 15px;
+                    border-radius: 50%;
+                    border: 1px solid silver;" onclick="location.href='@routes.HomeController.filtersearchwifi()'" type="button"></button> Free WiFi<br>
+
+                <button style="
+                    height: 15px;
+                    width: 15px;
+                    border-radius: 50%;
+                    border: 1px solid silver;" onclick="location.href='@routes.HomeController.filtersearchnosmoke()'" type="button"></button> Smoke Free<br>
+            </form>
+        </div>
+    </div>
+
+    <div style="float: right;margin-top: 2em;" class="col-md-9">
+        <table style="border:none;
+            border-collapse:collapse;">
+            <tr> <td>  <a href="@routes.HomeController.clayton()">
+        <img style="height:200px; width:300px; border: 10px solid red; margin-left: 350px; margin-bottom: 6em;" src="@routes.Assets.versioned("images/hotels/Clayton.jpg")">
+        </a> </td>
+
+            <td  style="position: absolute; margin-left: 20px;"> <h4 style="color: blue"> The Clayton Hotel </h4>
+                 <h5 style="color: blue"> Ballsbridge, Dublin </h5>
+                 <p> This property is 15 minutes walk from the beach. Boasting spacious rooms with en suite bathrooms, Clayton Hotel, Ballsbridge is a beautifully restored 19th-century Masonic orphan’s school with landscaped gardens.
+            </tr>
+        </table>
+
+    </div>
+
+
+    <div style="float: right" class="col-md-9">
+        <table style="border:none;
+            border-collapse:collapse;">
+            <tr> <td>  <a href="@routes.HomeController.hilton()">
+                <img style="height:200px; width:300px; border: 10px solid red; margin-left: 350px; margin-bottom: 6em;" src="@routes.Assets.versioned("images/hotels/hilton.jpg")">
+            </a> </td>
+
+                <td  style="position: absolute; margin-left: 20px;"> <h4 style="color: blue"> The Hilton Hotel </h4>
+                    <h5 style="color: blue"> Dublin </h5>
+                    <p>Hilton Garden Inn Dublin Custom House has contemporary, spacious rooms with flat-screen TVs with Freeview, spa toiletries, and spacious bathrooms. There is a workspace area and tea and coffee-making facilities. </p>
+            </tr>
+        </table>
+
+    </div>
+
+
+
+    <div style="float: right" class="col-md-9">
+        <table style="border:none;
+            border-collapse:collapse;">
+            <tr> <td>  <a href="@routes.HomeController.temple()">
+                <img style="height:200px; width:300px; border: 10px solid red; margin-left: 350px; margin-bottom: 6em;" src="@routes.Assets.versioned("images/hotels/temple.jpg")">
+            </a> </td>
+
+                <td  style="position: absolute; margin-left: 20px;"> <h4 style="color: blue"> The Temple Bar </h4>
+                    <h5 style="color: blue"> Temple Bar, Dublin </h5>
+                    <p> Located in Dublin, the chic Temple Bar Inn offers free WiFi access throughout and a 24-hour front desk. The popular O'Connell Street and Trinity College are both a 3-minute walk away. </p> </td>
+            </tr>
+        </table>
+
+    </div>
+
+
+
+    <div style="float: right" class="col-md-9">
+        <table style="border:none;
+            border-collapse:collapse;">
+            <tr> <td>  <a href="@routes.HomeController.jurys()">
+                <img style="height:200px; width:300px; border: 10px solid red; margin-left: 350px; margin-bottom: 6em;" src="@routes.Assets.versioned("images/hotels/jurys.jpg")">
+            </a> </td>
+
+                <td  style="position: absolute; margin-left: 20px;"> <h4 style="color: blue"> The Jury Inn </h4>
+                    <h5 style="color: blue"> Parnell Street, Dublin </h5>
+                    <p> Based in a busy hub of Dublin, Jurys Inn Dublin Parnell Street offers easy access to many of Dublin’s attractions. near a pulsing centre of Dublin activity as well as a range of monuments and statues relating to Irish Heritage. </p> </td>
+            </tr>
+        </table>
+
+    </div>
+
+
+
+    <div style="float: right; margin-bottom: 5em;" class="col-md-9">
+        <table style="border:none;
+            border-collapse:collapse;">
+            <tr> <td>  <a href="@routes.HomeController.ripley()">
+                <img style="height:200px; width:300px; border: 10px solid red; margin-left: 350px; margin-bottom: 1em;" src="@routes.Assets.versioned("images/hotels/Ripley.jpg")">
+            </a> </td>
+
+                <td  style="position: absolute; margin-left: 20px;"> <h4 style="color: blue"> The Ripley Court Hotel </h4>
+                    <h5 style="color: blue"> Talbot Street, Dublin </h5>
+                    <p> Less than 5 minutes' walk from O'Connell Street, The Ripley Court Hotel is close to Temple Bar and Trinity College. This central Dublin hotel offers spacious, tastefully furnished rooms with flat-screen TVs, free WiFi and power showers. </p> </td>
+            </tr>
+        </table>
+
+    </div>
+    <div style="float: right" class="col-md-9">
+    </div>
+
+</div>
+
+
+}

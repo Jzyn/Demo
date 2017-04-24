@@ -3,7 +3,9 @@
     <div class="row">
 
         <div class="col-md-3">
+
             <div class="list-group">
+
             </div>
         </div>
 
@@ -16,9 +18,18 @@
             <br>
             <div class="tophalf">
 
-                <p>This hotel is conveniently situated close to the Central Business Park and Leopardstown racecourse and serviced by the Luas light rail system and Aircoach.
-                    The bedrooms are spacious and well appointed. Contemporary in style, the open-plan public areas include a spacious lounge bar with snack food available throughout the day
-                    and lunch and dinner is served in the Restaurant. There is a gym and a choice of conference rooms including the Power Suite. Underground parking is available.</p>
+                <p>This property is 15 minutes walk from the beach. Boasting spacious rooms with en suite bathrooms, Clayton Hotel, Ballsbridge is a beautifully restored 19th-century Masonic orphan’s school with landscaped gardens. Located less than 5 minutes' walk from the RDS, the city buses stop right outside the hotel. Underground car parking is available for an additional charge.</p><br>
+                 <p>   Bedrooms feature fluffy duvets and hypo-allergenic pillows. Rooms are sound proofed for a quiet nights’ sleep and have desks with lamps and free Wi-Fi.</p> <br>
+
+                <p>Traditional breakfasts are served each morning, with light snacks and a carvery through the day. In the evening, international cuisine is served in the Brasserie Restaurant.</p> <br>
+
+                <p>With its stained glass windows, high ceilings, oak panelled walls and original mosaic tiling, the restored Thomas Prior Hall is the jewel in the crown of this beautiful hotel.</p> <br>
+
+                    <p>With the 3Arena nearby, Tom’s Bar is the perfect place for a pre-concert drinks and food. The Aviva Stadium, Bord Gais Energy Theatre and the Grand Canal are within 1.6 km of Clayton Hotel, Ballsbridge.</p> <br>
+
+                <p>    Couples particularly like the location — they rated it 8 for a two-person trip.</p> <br>
+
+                <p>    We speak your language!</p>
             </div>
 
 
@@ -27,17 +38,48 @@
         </div>
 
         <div style="padding-bottom: 20px;" class="col-md-3">
-            <img style="height:254px; width:394px; border: 4px solid black;" src="@routes.Assets.versioned("images/Clayton.jpg")" alt="Clayton Hotel">
+            <img style="height:254px; width:394px; margin-bottom: 5px;" src="@routes.Assets.versioned("images/Clayton.jpg")" alt="Clayton Hotel">
+
+            </div>
+        <div style="padding-bottom: 20px; padding-top:30px; padding-left: 100px;" class="col-md-3">
+        <div class="w3-content w3-display-container">
+            <img class="mySlides" src="@routes.Assets.versioned("images/slide/1.jpg")" style="width:130%; height:130px;">
+            <img class="mySlides" src="@routes.Assets.versioned("images/slide/2.jpg")" style="width:130%; height:130px;">
+            <img class="mySlides" src="@routes.Assets.versioned("images/slide/3.jpg")" style="width:130%; height:130px;">
+            <img class="mySlides" src="@routes.Assets.versioned("images/slide/4.jpg")" style="width:130%; height:130px;">
+
+            <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+            <button style="left:108%" class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
 
         </div>
-
+        </div>
         <div class="col-md-3">
-            <div class="row">
+            <div style="width: 412px; margin-left: 1px;" class="row">
 
-                <div  class="well">Check out the rooms available here</div>
-                <button onclick="location.href='@routes.HomeController.rooms(3)'" type="button" class="btn btn-info btn-lg">View Rooms</button>
+                <div  style="text-align: center; margin-right: 50px;" class="well" >Check out the rooms available here</div>
+                <button  style="width:200px; color: orange; margin-left: 75px;" onclick="location.href='@routes.HomeController.rooms(3)'" type="button">View Rooms</button>
             </div>
 
         </div>
+
+        <script>
+                var slideIndex = 1;
+                showDivs(slideIndex);
+
+                function plusDivs(n) {
+                    showDivs(slideIndex += n);
+                }
+
+                function showDivs(n) {
+                    var i;
+                    var x = document.getElementsByClassName("mySlides");
+                    if (n > x.length) {slideIndex = 1}
+                    if (n < 1) {slideIndex = x.length}
+                    for (i = 0; i < x.length; i++) {
+                        x[i].style.display = "none";
+                    }
+                    x[slideIndex-1].style.display = "block";
+                }
+        </script>
     </div>
 }

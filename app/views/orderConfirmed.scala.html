@@ -1,0 +1,58 @@
+@(user: models.users.User, order: models.shopping.ShopOrder)
+
+@import play.api.Play.resource
+@import play.api.Play.current
+@import models.shopping._
+@import models.Room;
+
+    <!-- Pass page title and user on to main -->
+@main("Order Confirmation", user) {
+
+
+    <div class="row">
+
+        <div class="col-md-12">
+            @if(flash.containsKey("success")) {
+                <div class="alert alert-success">
+                @flash.get("success")
+                </div>
+            }
+
+            <table style="border-color: orange" class="table table-bordered table-hover table-condensed">
+                <thead>
+                        <!-- The header row-->
+                    <tr>
+                        <th>Room Number</th>
+                        <th>Description</th>
+                        <th>People</th>
+                        <th>Check In</th>
+                        <th>Check Out</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @if(order != null) {
+                        <!-- Start of For loop - For each product add a row -->
+                    @for(i <- order.getItems) {
+                        <tr>
+                            <td>@i.getRoom.getNumber</td>
+                            <td>@i.getRoom.getDescription</td>
+                            <td>@i.getRoom.getPeople()</td>
+                            <td><p>Today</p></td>
+                            <td><p>Tomorrow</p></td>
+                            <td>@("%.2f".format(i.getItemTotal))</td>
+
+                        </tr>
+                    }<!-- End of For loop -->
+                }
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-right"><strong>Order Total: &euro; @("%.2f".format(order.getOrderTotal))</strong></p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}

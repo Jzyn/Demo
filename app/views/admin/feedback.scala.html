@@ -1,7 +1,7 @@
-@(feedbacks: List[models.Feedback], user: models.users.User)
+@(feedback: List[models.Feedback], user: models.users.User)
 
 <!-- Pass page title and content {html between braces} to the main view -->
-@admin.adminMain("Feedbacks", user) {
+@admin.adminMain("Feedback", user) {
     <!-- HTML content for the index view -->
     <div class="row">
         <div class="col-sm-2">
@@ -27,7 +27,7 @@
                 </thead>
                 <tbody>
 
-                    @for(f <- feedbacks) {
+                    @for(f <- feedback) {
                         <tr>
                             <td>@f.getName</td>
                             <td>@f.getEmail</td>

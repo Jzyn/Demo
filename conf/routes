@@ -7,65 +7,77 @@
 #######################
 # Public Site  Routes #
 #######################
-GET     /                       controllers.HomeController.index()
+GET     /                                   controllers.HomeController.index()
 
-GET     /whatson                 controllers.HomeController.whatson(fil?="")
+GET     /whatson                            controllers.HomeController.browse()
+GET     /filtersearchff                     controllers.HomeController.filtersearchff()
+GET     /filtersearchmls                    controllers.HomeController.filtersearchmls()
+GET     /filtersearchwifi                   controllers.HomeController.filtersearchwifi()
+GET     /filtersearchnosmoke                controllers.HomeController.filtersearchnosmoke
+GET     /rooms                              controllers.HomeController.rooms(hot: Long ?=0L)
+GET     /contact 			                controllers.HomeController.contact
 
-GET     /bookRoom                    controllers.HomeController.bookRoom
-
-# products accepts a parameter default to 0 (Long)
-GET     /rooms             controllers.HomeController.rooms(hot:Long ?=0L)
-
-GET     /contact 			controllers.HomeController.contact
-
-GET     /bookings                   controllers.HomeController.bookings()
+POST    /feedbackSubmit                     controllers.HomeController.feedbackSubmit
 
 
+################
+#   Shopping  #
+################
+
+GET     /showBasket                         controllers.OrderController.showBasket()
+GET     /addToBasket/:id                    controllers.OrderController.addToBasket(id: Long)
+GET     /emptyBasket                        controllers.OrderController.emptyBasket()
+GET     /placeOrder                         controllers.OrderController.placeOrder()
+GET     /viewOrder/:id                      controllers.OrderController.viewOrder(id: Long)
+GET     /basketVouchCode                    controllers.OrderController.something
 
 ################
 # Admin Routes #
 ################
-# products accepts a parameter default to 0 (Long)
-GET     /admin/rooms              controllers.AdminController.rooms(hot:Long ?=0L)
 
-GET    /admin/feedback            controllers.AdminController.feedback
 
-# Request to load the add product form
-GET     /admin/addroom                  controllers.AdminController.addRoom
+GET     /admin/rooms                        controllers.AdminController.rooms(hot:Long ?=0L)
 
-# Data submitted by the form
-POST    /admin/addRoomSubmit            controllers.AdminController.addRoomSubmit
+GET     /admin/feedback                     controllers.AdminController.feedback
 
-# Delete a product by an id passed as a parameter
-GET    /admin/delRoom/:id               controllers.AdminController.deleteRoom(id: Long)
+GET     /admin/addroom                      controllers.AdminController.addRoom
 
-GET    /admin/delMsg                    controllers.AdminController.deleteMessage()
+POST    /admin/addRoomSubmit                controllers.AdminController.addRoomSubmit
 
-# Update a product by id
-GET	    /admin/updateRoom/:id        controllers.AdminController.updateRoom(id: Long)
+GET    /admin/delRoom/:id                   controllers.AdminController.deleteRoom(id: Long)
+
+GET    /admin/delMsg                        controllers.AdminController.deleteMessage()
+
+GET	    /admin/updateRoom/:id               controllers.AdminController.updateRoom(id: Long)
+
+GET     /admin/home                                   controllers.AdminController.index()
 
 
 
 ################
 # Login routes #
 ################
-GET     /login                       controllers.security.LogonController.login
-POST    /loginSubmit                 controllers.security.LogonController.loginSubmit
-GET     /logout                      controllers.security.LogonController.logout
+GET     /login                              controllers.security.LogonController.login
+POST    /loginSubmit                        controllers.security.LogonController.loginSubmit
+GET     /logout                             controllers.security.LogonController.logout
+GET     /admin/logout                       controllers.security.LogonController.logout
+
+GET     /signup                             controllers.HomeController.signUp
+POST    /signUpSubmit                       controllers.HomeController.signUpSubmit
 
 
 ################
 # Hotel Pages  #
 ################
-GET	/clayton				controllers.HomeController.clayton
+GET	/clayton			                    controllers.HomeController.clayton
 
-GET	/hilton			        controllers.HomeController.hilton
+GET	/hilton			                        controllers.HomeController.hilton
 
-GET /temple                 controllers.HomeController.temple
+GET /temple                                 controllers.HomeController.temple
 
-GET /ripley                 controllers.HomeController.ripley
+GET /ripley                                 controllers.HomeController.ripley
 
-GET /jurys                  controllers.HomeController.jurys
+GET /jurys                                  controllers.HomeController.jurys
 
 
 

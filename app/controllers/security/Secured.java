@@ -1,8 +1,11 @@
 package controllers.security;
 
-import controllers.security.LogonController;
+import play.*;
 import play.mvc.*;
 import play.mvc.Http.*;
+
+import models.*;
+import models.users.*;
 
 
 

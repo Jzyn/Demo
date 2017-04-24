@@ -1,0 +1,31 @@
+@import helper._
+
+@(signUpForm: play.data.Form[models.users.User], user: models.users.User)
+
+@main("Sign up",user){
+    @form(action = routes.HomeController.signUpSubmit(), 'class -> "form-horizontal", 'role->"form") {
+            <div class="form-title-row">
+                <h1>Sign Up</h1>
+                @if(signUpForm.hasGlobalErrors){
+                    <p class="alert alert-warning">
+                    @signUpForm.globalError.message
+                    </p>
+                }
+            </div>
+
+        @inputText(signUpForm("email"), '_label -> "Email",'class -> "form-control")
+
+        @inputText(signUpForm("name"), '_label -> "Name",'class -> "form-control")
+
+        @inputText(signUpForm("password"), '_label -> "Password",'class -> "form-control")
+
+
+        @inputText(signUpForm("role"), '_label -> "", 'hidden -> "hidden")
+        <div class="form-row">
+            <button type="submit" value="save">Submit</button>
+        </div>
+            <p style="text-align:center;">Already have an account? <a href="login"> Sign In Here </a>
+            </p>
+
+    }
+}
