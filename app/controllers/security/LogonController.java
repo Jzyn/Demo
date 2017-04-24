@@ -47,7 +47,7 @@ public class LogonController extends Controller {
             return redirect(controllers.routes.AdminController.rooms(0));
         }
         else {
-            return redirect(controllers.routes.HomeController.index());
+            return redirect(controllers.routes.HomeController.browse());
         }
     }
 

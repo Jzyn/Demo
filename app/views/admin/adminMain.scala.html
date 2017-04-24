@@ -41,9 +41,9 @@
                 </div>
 
                 <ul class="nav navbar-nav navbar-left">
-                    <a href="@routes.HomeController.index()"><li>
+                    <a href="@routes.AdminController.index">
                         <img src="@routes.Assets.versioned("images/logo.png")" alt="logo" height="70px" width="390px">
-                    </li></a>
+                    </a>
                 </ul>
 
 
@@ -54,20 +54,19 @@
 
 
                     <ul class="nav navbar-nav" style="padding-top: 20px">
-                        <li @if(title == "Browse"){class="active"}><a href="@routes.HomeController.browse()">Browse</a> </li>
-                        <li @if(title == "Booking"){class="active"}><a href="@routes.AdminController.rooms()">Booking</a> </li>
-                        <li @if(title == "Contact"){class="active"}><a href="@routes.HomeController.contact()">Contact</a></li>
+                        <li @if(title == "Browse"){class="active"}><a href="@routes.HomeController.browse()">Browse<span style="padding-left: 5px;" class="glyphicon glyphicon-book"></span></a> </li>
+                        <li @if(title == "Booking"){class="active"}><a href="@routes.AdminController.rooms()">Booking<span style="padding-left: 5px;" class="glyphicon glyphicon-barcode"></span></a> </li>
+                        <li @if(title == "Feedback"){class="active"}><a href="@routes.AdminController.feedback()">Feedback <span style="padding-left: 5px;" class="glyphicon glyphicon-inbox"></span> </a></li>
                     </ul>
 
 
 
                     <ul class="nav navbar-nav navbar-right" style="padding-top: 20px">
-                        <li @if(title == "feedbacks"){class="active"}><a href="@routes.AdminController.feedback()">Feedback</a></li>
                         <li @if(title == "Log in"){class="active"}>
                         @if(user != null){
                                 <!-- This Line -->               <a href="logout">Logout @user.getName</a>
                         }else{
-                                <!-- And this Line -->               <a href="login">Log in  <span class="glyphicon glyphicon-user"></span></a>
+                                <!-- And this Line -->               <a href="login">Sign Up/Login  <span style="padding-left: 5px;" class="glyphicon glyphicon-user"></span></a>
 
                     }
 

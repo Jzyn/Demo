@@ -13,9 +13,10 @@
         <!-- Build the form, adding an input for each field -->
         <!-- Note the label parameter -->
 
-        @inputText(addRoomForm("number"), '_label -> "Features",'class -> "form-control")
+        @inputText(addRoomForm("number"), '_label -> "Room Number",'class -> "form-control")
 
         @inputText(addRoomForm("description"), '_label -> "Features",'class -> "form-control")
+
 
         @select(
             addRoomForm("hotel.id"),
@@ -34,7 +35,6 @@
     </div>
         <!-- Hidden ID field - required for updates -->
         @inputText(addRoomForm("id"), '_label -> "", 'hidden -> "hidden")
-        @inputText(addRoomForm("people"), '_label -> "", 'hidden -> "hidden")
 
 
 

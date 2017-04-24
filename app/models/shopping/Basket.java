@@ -86,35 +86,11 @@ import models.users.*;
              double total = 0;
 
             for (OrderItem i: basketItems) {
-                total += i.getRoom().getPrice() * i.getRoom().getPeople();
+                total += i.getRoom().getPrice();
             }
             return total;
         }
 
-        public double getUpdatedTotalTEN(){
-             double total = getBasketTotal();
-            for (OrderItem i: basketItems) {
-                total = (i.getRoom().getPrice()) - (i.getRoom().getPrice() /100 * 10);
-            }
-            return total;
-
-        }
-        public double getUpdatedTotalTWENTY(){
-             double total = getBasketTotal();
-            for (OrderItem i: basketItems) {
-                total = (i.getRoom().getPrice()) - (i.getRoom().getPrice() * i.getRoom().getPeople()/100 * 20);
-            }
-            return total;
-
-        }
-        public double getUpdatedTotalTHIRTY(){
-            double total = getBasketTotal();
-            for (OrderItem i: basketItems) {
-                total = (i.getRoom().getPrice() * i.getRoom().getPeople()) - (i.getRoom().getPrice() * i.getRoom().getPeople()/100 * 30);
-            }
-            return total;
-
-        }
 
         //Generic query helper
         public static Finder<Long,Basket> find = new Finder<Long,Basket>(Basket.class);

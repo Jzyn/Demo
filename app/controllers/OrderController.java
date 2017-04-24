@@ -85,14 +85,15 @@ public class OrderController extends Controller {
             // Remove from basket
             i.setBasket(null);
             // update item
-            i.update();
             i.getRoom().setState("Booked");
             i.getRoom().update();
+            i.delete();
 
         }
 
         // Update the order
-        order.update();
+        // causes error when another person tries to book
+        // order.update();
 
         // Clear and update the shopping basket
         u.getBasket().setBasketItems(null);
@@ -104,13 +105,6 @@ public class OrderController extends Controller {
 
     }
 
-    public Result something(){
-        User u = User.getUserById(session().get("email"));
-        u.getBasket().getUpdatedTotalTEN();
-        u.update();
-        u.getBasket().update();
-        return ok(basket.render(getUserFromSession()));
-    }
 
     public Result showBasket() {
 

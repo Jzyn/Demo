@@ -9,12 +9,12 @@
 #######################
 GET     /                                   controllers.HomeController.index()
 
-GET     /whatson                            controllers.HomeController.browse()
+GET     /browse                            controllers.HomeController.browse()
 GET     /filtersearchff                     controllers.HomeController.filtersearchff()
 GET     /filtersearchmls                    controllers.HomeController.filtersearchmls()
 GET     /filtersearchwifi                   controllers.HomeController.filtersearchwifi()
 GET     /filtersearchnosmoke                controllers.HomeController.filtersearchnosmoke
-GET     /rooms                              controllers.HomeController.rooms(hot: Long ?=0L)
+GET     /booking                              controllers.HomeController.rooms(hot: Long ?=0L)
 
 GET     /contact 			    controllers.HomeController.contact
 POST    /feedbackSubmit                     controllers.HomeController.feedbackSubmit
@@ -29,14 +29,13 @@ GET     /addToBasket/:id                    controllers.OrderController.addToBas
 GET     /emptyBasket                        controllers.OrderController.emptyBasket()
 GET     /placeOrder                         controllers.OrderController.placeOrder()
 GET     /viewOrder/:id                      controllers.OrderController.viewOrder(id: Long)
-GET     /basketVouchCode                    controllers.OrderController.something
 
 ################
 # Admin Routes #
 ################
 
 
-GET     /admin/rooms                        controllers.AdminController.rooms(hot:Long ?=0L)
+GET     /admin/booking                        controllers.AdminController.rooms(hot:Long ?=0L)
 
 GET     /admin/feedback                     controllers.AdminController.feedback
 
@@ -52,7 +51,13 @@ GET    /admin/delAllMsg                        controllers.AdminController.delet
 
 GET   /admin/updateRoom/:id               controllers.AdminController.updateRoom(id: Long)
 
-GET     /admin/home                                   controllers.AdminController.index()
+GET   /admin						        controllers.AdminController.index()
+
+GET     /admin/browse                            controllers.HomeController.browse()
+GET     /admin/filtersearchff                     controllers.HomeController.filtersearchff()
+GET     /admin/filtersearchmls                    controllers.HomeController.filtersearchmls()
+GET     /admin/filtersearchwifi                   controllers.HomeController.filtersearchwifi()
+GET     /admin/filtersearchnosmoke                controllers.HomeController.filtersearchnosmoke
 
 
 
@@ -72,14 +77,16 @@ POST    /signUpSubmit                       controllers.HomeController.signUpSub
 # Hotel Pages  #
 ################
 GET	/clayton			                    controllers.HomeController.clayton
-
 GET	/hilton			                        controllers.HomeController.hilton
-
 GET /temple                                 controllers.HomeController.temple
-
 GET /ripley                                 controllers.HomeController.ripley
-
 GET /jurys                                  controllers.HomeController.jurys
+
+GET	/admin/clayton			                    controllers.HomeController.clayton
+GET	/admin/hilton			                        controllers.HomeController.hilton
+GET /admin/temple                                 controllers.HomeController.temple
+GET /admin/ripley                                 controllers.HomeController.ripley
+GET /admin/jurys                                  controllers.HomeController.jurys
 
 
 

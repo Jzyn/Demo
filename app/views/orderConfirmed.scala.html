@@ -22,9 +22,9 @@
                 <thead>
                         <!-- The header row-->
                     <tr>
+                        <th>Hotel</th>
                         <th>Room Number</th>
                         <th>Description</th>
-                        <th>People</th>
                         <th>Check In</th>
                         <th>Check Out</th>
                         <th>Total</th>
@@ -35,11 +35,11 @@
                         <!-- Start of For loop - For each product add a row -->
                     @for(i <- order.getItems) {
                         <tr>
+                            <td>@i.getRoom.getHotel.getName</td>
                             <td>@i.getRoom.getNumber</td>
                             <td>@i.getRoom.getDescription</td>
-                            <td>@i.getRoom.getPeople()</td>
-                            <td><p>Today</p></td>
-                            <td><p>Tomorrow</p></td>
+                            <td><p id="tomorrow"></p></td>
+                            <td><p id="tomorrownext"></p></td>
                             <td>@("%.2f".format(i.getItemTotal))</td>
 
                         </tr>
@@ -50,9 +50,35 @@
             <div class="row">
                 <div class="col-md-12">
                     <p class="text-right"><strong>Order Total: &euro; @("%.2f".format(order.getOrderTotal))</strong></p>
+                    <p class="text-right"> Booked on: </p>
+                    <p class="text-right"  id="date"></p>
                 </div>
 
             </div>
         </div>
+        <script>
+                n =  new Date();
+                y = n.getFullYear();
+                m = n.getMonth() + 1;
+                d = n.getDate();
+                document.getElementById("date").innerHTML = d + "/" + m + "/" + y;
+
+        </script>
+        <script>   n =  new Date();
+        y = n.getFullYear();
+        m = n.getMonth() + 1;
+        d = n.getDate() + 1;
+        document.getElementById("tomorrow").innerHTML = d + "/" + m + "/" + y;
+
+</script>
+        <script>   n =  new Date();
+        y = n.getFullYear();
+        m = n.getMonth() + 1;
+        d = n.getDate() + 2;
+        document.getElementById("tomorrownext").innerHTML = d + "/" + m + "/" + y;
+
+        </script>
+
+
     </div>
 }

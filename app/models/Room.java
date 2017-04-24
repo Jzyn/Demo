@@ -30,8 +30,6 @@ public class Room extends Model {
     @Constraints.Required
     private double price;
 
-    private int people;
-
     private String state;
 
 
@@ -43,14 +41,13 @@ public class Room extends Model {
     }
 
     // Constructor to initialise object
-    public Room(Long id, int number, String description, Hotel hotel, double price, String state, int people) {
+    public Room(Long id, int number, String description, Hotel hotel, double price, String state) {
         this.id = id;
         this.number = number;
         this.description = description;
         this.hotel = hotel;
         this.price = price;
         this.state = state;
-        this.people = people;
     }
 
     //Generic query helper for entity Computer with id Long
@@ -108,14 +105,6 @@ public static Map<String,String> options() {
 
     public double getPrice() {
         return price;
-    }
-
-    public int getPeople() {
-        return people;
-    }
-
-    public void setPeople(int people) {
-        this.people = people;
     }
 
     public void setPrice(double price) {

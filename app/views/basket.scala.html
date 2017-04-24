@@ -22,9 +22,9 @@
                 <thead>
                         <!-- The header row-->
                     <tr>
+                        <th>Hotel</th>
                         <th>Room number</th>
                         <th>Description</th>
-                        <th>people</th>
                         <th>Total</th>
                     </tr>
                 </thead>
@@ -33,10 +33,10 @@
 
                     @for(i <- user.getBasket().getBasketItems()) {
                         <tr>
+                            <td>@i.getRoom.getHotel.getName</td>
                             <td>@i.getRoom.getNumber</td>
                             <td>@i.getRoom.getDescription</td>
-                            <td>@i.getRoom.getPeople()</td>
-                            <td>@("%.2f".format(i.getBasket.getUpdatedTotalTEN()))</td>
+                            <td>@("%.2f".format(i.getRoom.getPrice()))</td>
 
                         </tr>
                     }<!-- End of For loop -->
@@ -61,11 +61,6 @@
                             <span class="glyphicon glyphicon-euro"></span> Place Order</a>
                     </p>
                 </div>
-                <div class="row">
-                    <div style="margin-left: 80%; margin-top: 40px; padding: 2em;" class="col-md-12">
-                        <p> Have a coupan code?</p>
-                        <input type="search" placeholder="Enter Here" style="background-color: black; color: white; text-align: center; border: none"><input type="submit" value="Apply" onclick="location.href='@routes.OrderController.something()'">
-                    </div>
                 </div>
             </div>
         </div>

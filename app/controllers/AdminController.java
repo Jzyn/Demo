@@ -97,7 +97,7 @@ public class AdminController extends Controller {
 
         // Set a success message in temporary flash
         // for display in return view
-        flash("success", "Room " + r.getId() + " has been created/ updated");
+        flash("success", "Room ID: " + r.getId() + " has been created/ updated");
 
         // Redirect back to the Admin rooms view
         return redirect(routes.AdminController.rooms(0));
@@ -156,6 +156,7 @@ public class AdminController extends Controller {
 		Feedback.find.ref(f.getEmail()).delete();
 
 	}
+      flash("success", "All Feedback Cleared Out");
          
 
         return redirect(routes.AdminController.feedback());
