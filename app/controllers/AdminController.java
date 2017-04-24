@@ -143,10 +143,24 @@ public class AdminController extends Controller {
 
 
 
-    public Result deleteMessage() {
-        flash("Hooray");
+    public Result deleteMessage(String email) {
+       
+         Feedback.find.ref(email).delete();
 
         return redirect(routes.AdminController.feedback());
     }
 
+  public Result deleteAllMessages() {
+        List<Feedback> allFeedback = Feedback.findAll();
+         for(Feedback f : allFeedback){
+		Feedback.find.ref(f.getEmail()).delete();
+
+	}
+         
+
+        return redirect(routes.AdminController.feedback());
+    }
 }
+  
+
+

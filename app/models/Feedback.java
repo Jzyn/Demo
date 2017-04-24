@@ -6,6 +6,7 @@ import javax.persistence.*;
 import com.avaje.ebean.Model;
 import play.data.format.*;
 import play.data.validation.*;
+import java.util.Arrays;
 
 @Entity
 public class Feedback extends Model {
@@ -14,7 +15,7 @@ public class Feedback extends Model {
     @Constraints.Required
     private String name;
 
-    @Constraints.Required
+    @Id
     private String email;
 
 
@@ -37,7 +38,7 @@ public class Feedback extends Model {
     }
 
     //Generic query helper for entity Computer with id Long
-    public static Finder<Long,Feedback> find = new Finder<Long,Feedback>(Feedback.class);
+    public static Finder<String,Feedback> find = new Finder<String,Feedback>(Feedback.class);
 
     public static List<Feedback> findAll() {
         return Feedback.find.all();

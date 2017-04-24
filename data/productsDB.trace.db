@@ -864,3 +864,9 @@ update feedback set name=?, email=?, subject=?, message=? where  [42001-192]
 2017-04-24 10:29:23 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "UPDATE FEEDBACK SET NAME=?, EMAIL=?, SUBJECT=?, MESSAGE=? WHERE  [*]"; expected "NOT, EXISTS, INTERSECTS"; SQL statement:
 update feedback set name=?, email=?, subject=?, message=? where  [42001-192]
+2017-04-24 10:37:47 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "UPDATE FEEDBACK SET NAME=?, EMAIL=?, SUBJECT=?, MESSAGE=? WHERE  [*]"; expected "NOT, EXISTS, INTERSECTS"; SQL statement:
+update feedback set name=?, email=?, subject=?, message=? where  [42001-192]
+2017-04-24 10:44:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "UPDATE FEEDBACK SET NAME=?, EMAIL=?, SUBJECT=?, MESSAGE=? WHERE  [*]"; expected "NOT, EXISTS, INTERSECTS"; SQL statement:
+update feedback set name=?, email=?, subject=?, message=? where  [42001-192]

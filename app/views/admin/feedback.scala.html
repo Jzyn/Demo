@@ -36,7 +36,7 @@
 		
                                 <!-- Delete Message button -->
                             <td>
-                                <a href="@routes.AdminController.deleteMessage()" class="btn-xs btn-danger"
+                                <a href="@routes.AdminController.deleteMessage(f.getEmail)" class="btn-xs btn-danger"
                                 onclick="return confirmDel();">
                                     <span class="glyphicon glyphicon-trash"></span>
                                 </a>
@@ -47,6 +47,10 @@
             </table>
 
         </div>
+     <a href="@routes.AdminController.deleteAllMessages()" class="btn-xs btn-danger"
+                                onclick="return confirmDel();">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </a>
     </div>
 
     <script>

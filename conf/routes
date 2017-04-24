@@ -15,8 +15,8 @@ GET     /filtersearchmls                    controllers.HomeController.filtersea
 GET     /filtersearchwifi                   controllers.HomeController.filtersearchwifi()
 GET     /filtersearchnosmoke                controllers.HomeController.filtersearchnosmoke
 GET     /rooms                              controllers.HomeController.rooms(hot: Long ?=0L)
-GET     /contact 			                controllers.HomeController.contact
 
+GET     /contact 			    controllers.HomeController.contact
 POST    /feedbackSubmit                     controllers.HomeController.feedbackSubmit
 
 
@@ -46,9 +46,11 @@ POST    /admin/addRoomSubmit                controllers.AdminController.addRoomS
 
 GET    /admin/delRoom/:id                   controllers.AdminController.deleteRoom(id: Long)
 
-GET    /admin/delMsg                        controllers.AdminController.deleteMessage()
+GET    /admin/delMsg                        controllers.AdminController.deleteMessage(String ?="")
 
-GET	    /admin/updateRoom/:id               controllers.AdminController.updateRoom(id: Long)
+GET    /admin/delAllMsg                        controllers.AdminController.deleteAllMessages()
+
+GET   /admin/updateRoom/:id               controllers.AdminController.updateRoom(id: Long)
 
 GET     /admin/home                                   controllers.AdminController.index()
 

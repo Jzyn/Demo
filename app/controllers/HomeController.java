@@ -126,21 +126,27 @@ public Result jurys() {
 
         // Create a feedback form object (to hold submitted data)
         // 'Bind' the object to the submitted form (this copies the filled form)
-        Form<Feedback> feedbackForm = formFactory.form(Feedback.class).bindFromRequest();
+        Form<Feedback> newFeedbackForm = formFactory.form(Feedback.class).bindFromRequest();
 
         // Check for errors
-        if(feedbackForm.hasErrors()) {
+        if(newFeedbackForm.hasErrors()) {
             // Display the form again
-            return badRequest(contact.render(feedbackForm, getUserFromSession()));
+            return badRequest(contact.render(newFeedbackForm, getUserFromSession()));
         }
 
         // Extract the feedback from the form object
-        Feedback f = feedbackForm.get();
+        Feedback f = newFeedbackForm.get();
 
-
-  
-            f.update();
+        if (f.getEmail() == null) {
+            // Save to the database via Ebean
             f.save();
+        }
+        else if (f.getEmail() != null) {
+            f.save();
+            f.update();
+        }
+  
+         
         
 
         // Set a success message in temporary flash
