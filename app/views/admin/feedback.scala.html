@@ -1,4 +1,4 @@
-@(feedback: List[models.Feedback], user: models.users.User)
+@(feedbacks: List[models.Feedback], user: models.users.User)
 
 <!-- Pass page title and content {html between braces} to the main view -->
 @admin.adminMain("Feedback", user) {
@@ -27,13 +27,13 @@
                 </thead>
                 <tbody>
 
-                    @for(f <- feedback) {
+                    @for(f <- feedbacks) {
                         <tr>
                             <td>@f.getName</td>
                             <td>@f.getEmail</td>
                             <td>@f.getSubject</td>
                             <td>@f.getMessage</td>
-
+		
                                 <!-- Delete Message button -->
                             <td>
                                 <a href="@routes.AdminController.deleteMessage()" class="btn-xs btn-danger"

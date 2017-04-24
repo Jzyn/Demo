@@ -858,3 +858,9 @@ select t0.id c0, t0.total c1, t0.user_email c2 from basket t0 where t0.id = ?   
 	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+2017-04-24 10:28:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "UPDATE FEEDBACK SET NAME=?, EMAIL=?, SUBJECT=?, MESSAGE=? WHERE  [*]"; expected "NOT, EXISTS, INTERSECTS"; SQL statement:
+update feedback set name=?, email=?, subject=?, message=? where  [42001-192]
+2017-04-24 10:29:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "UPDATE FEEDBACK SET NAME=?, EMAIL=?, SUBJECT=?, MESSAGE=? WHERE  [*]"; expected "NOT, EXISTS, INTERSECTS"; SQL statement:
+update feedback set name=?, email=?, subject=?, message=? where  [42001-192]

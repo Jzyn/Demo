@@ -65,9 +65,6 @@ insert into room (id,number,hotel_id,description,price,state,people) values ( 49
 insert into room (id,number,hotel_id,description,price,state,people) values ( 50,10,5,'Free Wifi, Flat Screen',15,'Available',1);
 
 
-
-
-
 insert into User (email,name,password,role) values ( 'admin@products.com', 'Alice Admin', 'password', 'admin' );
 
 insert into User (email,name,password,role) values ( 'manager@products.com', 'Bob Manager', 'password', 'manager' );

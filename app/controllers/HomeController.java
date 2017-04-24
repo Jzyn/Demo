@@ -138,14 +138,10 @@ public Result jurys() {
         Feedback f = feedbackForm.get();
 
 
-
-
-        // Movie already exists so update
-        if (f.getSubject() == null) {
-            f.setSubject(null);
+  
             f.update();
             f.save();
-        }
+        
 
         // Set a success message in temporary flash
         // for display in return view
