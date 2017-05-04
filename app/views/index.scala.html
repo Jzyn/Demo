@@ -1,11 +1,8 @@
 @(user: models.users.User)
     @admin.adminMain("Home", user){
         <div style="padding: 50px;">
-            <form style="width:100%"  action="@routes.HomeController.browse()">
-                <input type="search" placeholder="search ">
-                <input style="background-color: orange; border: 3px solid orange" type="submit" id="searchsubmit" value="Go!" class="btn-md btn-primary">
-            </form>
-
+            <h4> Welcome To the BooKING, where we hope to get you sorted with simple and fast Room booking <br> to facilitate your needs.</h4>
+            <h4> need any help? don't be shy and contact Us</h4>
             <div style="float: right;padding-left:70%" >
                 <img src="@routes.Assets.versioned("images/spon1.png")" alt="sd" width=315 height=215>
                 <a style="margin-left: 6em; margin-bottom: 10px;margin-top: 10px;" class="btn btn-default" href="@routes.HomeController.clayton()">The Clayton Hotel</a> <br>

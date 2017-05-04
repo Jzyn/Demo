@@ -5,7 +5,7 @@
 @* helpers will be used to create the form dynamically, though static HTML form element also work. *@
 
 @admin.adminMain("Add Room", user) {
-    <h3>Add a new Room</h3>
+    <h3>Add/Edit a Room</h3>
 
         <!-- Use the views.html.helpers package to create the form -->
     @form(action = routes.AdminController.addRoomSubmit(), 'class -> "form-horizontal", 'role->"form") {
