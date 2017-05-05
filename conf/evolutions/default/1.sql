@@ -49,7 +49,7 @@ create table room (
   description                   varchar(255),
   hotel_id                      bigint,
   price                         double,
-  state                        varchar(255),
+  state                         varchar(255),
   constraint pk_room primary key (id)
 );
 create sequence room_seq;

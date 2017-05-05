@@ -112,10 +112,10 @@ public class AdminController extends Controller {
 
         try {
             r = Room.find.byId(id);
-
+            r.update();
             // Create a form based on the Room class and fill using r
             roomForm = formFactory.form(Room.class).fill(r);
-
+          
             } catch (Exception ex) {
                 // Display an error message or page
                 return badRequest("error");
